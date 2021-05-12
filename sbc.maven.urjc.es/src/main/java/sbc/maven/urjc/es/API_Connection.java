@@ -30,44 +30,41 @@ public class API_Connection {
     return null;
     }
 
-    public static void fromJSONtoObject(List<String> listado){
+   public static String fromStringtoQueryString(String entrada) {
+	   return entrada.trim().replace(" ", "+");
+   }
+
+    public static Tuple<Actor,Pelicula> fromJSONtoObject(List<String> listado){
         List<Pelicula> movies = new ArrayList<Pelicula>();
         List<Actor> actors = new ArrayList<Actor>();
         for (String aux : listado) {
             JsonObject imdb = API_Connection.PeticionAPI(aux, "IMDB");
             if (imdb.get("Response").getAsString().equals("True") && imdb.has("Title") && imdb.has("imdbRating") && imdb.has("Country") && imdb.has("Genre") && imdb.has("Production"))
             {
-                //System.out.println((imdb.get("Title").getAsString() +"           "+  imdb.get("imdbRating").getAsString()  +"           "+  imdb.get("Country").getAsString() +"           "+  imdb.get("Genre").getAsString() +"           "+  imdb.get("Production").getAsString()));
-
                 Pelicula pelicula_aux = new Pelicula(imdb.get("Title").getAsString(), imdb.get("imdbRating").getAsString(), imdb.get("Country").getAsString(), imdb.get("Genre").getAsString(), imdb.get("Production").getAsString());
-                movies.add(pelicula_aux);
-                String[] auxActores = imdb.get("Actors").getAsString().split(",");
-                for (String nombre : auxActores) {
-                    Actor actor = new Actor(nombre);
-                    if (actors.contains(actor)) {
-                        actor = actors.get(actors.indexOf(actor));
-                    } else {
-                        actors.add(actor);
-                    }
-                    actor.addFilm(String.valueOf(pelicula_aux.getCalificacion()));
-                    pelicula_aux.addActor(actor);
-
-
+                
+                if (!movies.contains(pelicula_aux))
+                {
+                	movies.add(pelicula_aux);
+                	String[] auxActores = imdb.get("Actors").getAsString().split(",");
+	                for (String actorInAux : auxActores) {
+	                    Actor actor = new Actor(actorInAux);
+	                    if (actors.contains(actor)) {
+	                        actor = actors.get(actors.indexOf(actor));
+	                    } else {
+	                        actors.add(actor);
+	                    }
+	                    actor.addFilm(String.valueOf(pelicula_aux.getCalificacion()));
+	                    pelicula_aux.addActor(actor);
+	                }
                 }
-
-
             }
-
-
         }
-        List<List<Object>> sistema = new ArrayList<>();
-        sistema.add(actors);
-        sistema.add(movies);
-        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
+        Tuple<Actor,Pelicula> returnedTuple = new Tuple<>(actors,movies);
+//        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
 //        System.out.println(actors.toString());
-        System.out.println(actors.toString());
-
+//        System.out.println(actors.toString());
+        return returnedTuple;
     }
-    }
-
 }
+

@@ -13,7 +13,8 @@ import org.xml.sax.SAXException;
 
 public class Main {
     public static void main(String[] args) throws IOException, SAXException {
-
+    	List<Pelicula> movies = new ArrayList<Pelicula>();
+    	List<Actor> actors = new ArrayList<Actor>();
 
         String auxJohnnyDepp =
                 "PREFIX dbo: <http://dbpedia.org/ontology/>\r\n" +
@@ -78,41 +79,15 @@ public class Main {
 
         Jena jena = new Jena();
         //jena.executeQuery_aux(auxContinent);
-        List<Pelicula> movies = new ArrayList<Pelicula>();
-        List<Actor> actors = new ArrayList<Actor>();
+
         List<String> listado = jena.executeQuery(auxJohnnyDepp);
-        for (String aux : listado) {
-            JsonObject imdb = API_Connection.PeticionAPI(aux, "IMDB");
-            if (imdb.get("Response").getAsString().equals("True") && imdb.has("Title") && imdb.has("imdbRating") && imdb.has("Country") && imdb.has("Genre") && imdb.has("Production"))
-            {
-                //System.out.println((imdb.get("Title").getAsString() +"           "+  imdb.get("imdbRating").getAsString()  +"           "+  imdb.get("Country").getAsString() +"           "+  imdb.get("Genre").getAsString() +"           "+  imdb.get("Production").getAsString()));
-
-                Pelicula pelicula_aux = new Pelicula(imdb.get("Title").getAsString(), imdb.get("imdbRating").getAsString(), imdb.get("Country").getAsString(), imdb.get("Genre").getAsString(), imdb.get("Production").getAsString());
-                movies.add(pelicula_aux);
-                String[] auxActores = imdb.get("Actors").getAsString().split(",");
-                for (String nombre : auxActores) {
-                    Actor actor = new Actor(nombre);
-                    if (actors.contains(actor)) {
-                        actor = actors.get(actors.indexOf(actor));
-                    } else {
-                        actors.add(actor);
-                    }
-                    actor.addFilm(String.valueOf(pelicula_aux.getCalificacion()));
-                    pelicula_aux.addActor(actor);
-
-
-                }
-
-
-            }
-
-
-        }
+        Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
+        actors.addAll(tuple.getActores());
+        movies.addAll(tuple.getPelicula());
         System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
 //        System.out.println(actors.toString());
-        System.out.println(actors.toString());
+//        System.out.println(actors.toString());
 
-    }
 
 //        API_Connection.PeticionAPI(aux, "WIKI");
 //        Ontol ontologia = new Ontol("MovieOntology.owl","http://www.movieontology.org/2010/01/movieontology.owl");
@@ -120,6 +95,7 @@ public class Main {
 //        ontologia.loadOntology();
 //        ontologia.saveOntology();
     }
+}
 
 
 
