@@ -74,8 +74,6 @@ public class Main {
 
 
         Jena jena = new Jena();
-        jena.executeQuery_aux(auxContinent);
-
         List<String> listado = jena.executeQuery(auxJohnnyDepp);
         Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
         actors.addAll(tuple.getActores());
@@ -85,14 +83,15 @@ public class Main {
 
 
 //        API_Connection.PeticionAPI(aux, "WIKI");
-        Ontol ontologia = new Ontol("MovieOntology.owl","http://sbc2019Movie/ont");
+        Ontol ontologia = new Ontol("MovieOntology.owl","http://sbc2019Movie/ont/");
         ontologia.loadOntology();
 //        ontologia.addDataProperty("Calificacion", "xsd:double");
 //        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
         ontologia.addPeliculas(movies);
+        ontologia.addActores(actors);
 //        ontologia.addActores(actors);
         ontologia.saveOntology();
-        ontologia.razonador();
+        //ontologia.razonador();
 
         //Ontología de prueba
         /*Ontol ontologia2 = new Ontol("NuevaOntologia.owl","http://sbc2019/ont");

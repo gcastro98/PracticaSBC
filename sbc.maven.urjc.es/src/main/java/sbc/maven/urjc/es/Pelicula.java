@@ -8,21 +8,24 @@ public class Pelicula {
     private String titulo;
     private List<Actor> reparto;
     private double calificacion;
-    private String pais;
-    private String genero;
-    private String productora;
+    private List<String> pais;
+    private List<String> generos;
+    private List<String> productoras;
 
-    public Pelicula(String titulo, List<Actor> reparto, String cal, String pais, String genero, String productora) {
-        this(titulo,  cal,  pais,  genero,  productora);
+    public Pelicula(String titulo, List<Actor> reparto, String cal, String pais, String generos, String productoras) {
+        this(titulo, cal, pais, generos, productoras);
         this.reparto = reparto;
     }
-    public Pelicula(String titulo, String cal, String pais, String genero, String productora) {
-        this.reparto = new ArrayList<Actor>();
-        this.titulo = titulo.trim().replace(" ","_").replace(":", "_");
+
+    public Pelicula(String titulo, String cal, String pais, String generos, String productoras) {
+        List<String> unknown = new ArrayList<>();
+        unknown.add("Unknown");
+        this.reparto = new ArrayList<>();
+        this.titulo = titulo.trim().replaceAll("[ :]", "_");
         this.calificacion = !cal.equals("N/A") ? Double.parseDouble(cal) : 0.0;
-        this.pais = pais.trim().replace(" ","_").replace(":", "_");
-        this.genero = genero.trim().replace(" ","_").replace(":", "_");
-        this.productora = productora.trim().replace(" ","_").replace(":", "_");
+        this.pais = !pais.equals("N/A") ? replaceOnList(pais.split(",")) : unknown;
+        this.generos = !generos.equals("N/A") ? replaceOnList(generos.split(",")) : unknown;
+        this.productoras = !productoras.equals("N/A") ? replaceOnList(productoras.split(",")) : unknown;
     }
 
     public String getTitulo() {
@@ -49,31 +52,40 @@ public class Pelicula {
         this.calificacion = calificacion;
     }
 
-    public String getPais() {
+    public List<String> getPais() {
         return pais;
     }
 
-    public void setPais(String pais) {
+    public void setPais(List<String> pais) {
         this.pais = pais;
     }
 
-    public String getGenero() {
-        return genero;
+    public List<String> getGeneros() {
+        return generos;
     }
 
-    public void setGenero(String genero) {
-        this.genero = genero;
+    public void setGeneros(List<String> generos) {
+        this.generos = generos;
     }
 
-    public String getProductora() {
-        return productora;
+    public List<String> getProductoras() {
+        return productoras;
     }
 
-    public void setProductora(String productora) {
-        this.productora = productora;
+    public void setProductoras(List<String> productoras) {
+        this.productoras = productoras;
     }
-    public void addActor(Actor actor){
-        if(!reparto.contains(actor)) this.reparto.add(actor);
+
+    public void addActor(Actor actor) {
+        if (!reparto.contains(actor)) this.reparto.add(actor);
+    }
+
+    public List<String> replaceOnList(String[] entrada) {
+        List<String> salida = new ArrayList<>();
+        for (String individual : entrada) {
+            salida.add(individual.trim().replaceAll("[ :]", "_"));
+        }
+        return salida;
     }
 
     @Override

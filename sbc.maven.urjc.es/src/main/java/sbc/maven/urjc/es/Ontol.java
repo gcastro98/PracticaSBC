@@ -56,7 +56,7 @@ public class Ontol {
 	
 	public void addClass(String name) {
 		try {
-			OWLClass clase = factory.getOWLClass(name, prefixManager);
+			OWLClass clase = factory.getOWLClass(IRI.create(ontoIRI+name));
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(clase);
 			manager.addAxiom(ontology, axioma);
 		}catch (Exception e){
@@ -66,8 +66,8 @@ public class Ontol {
 	
 	public void addSubClass(String subClass, String superClass) {
 		try {
-			OWLClass subclase = factory.getOWLClass(subClass, prefixManager);
-			OWLClass superclase = factory.getOWLClass(superClass, prefixManager);
+			OWLClass subclase = factory.getOWLClass(IRI.create(ontoIRI+subClass));
+			OWLClass superclase = factory.getOWLClass(IRI.create(ontoIRI+superClass));
 
 			OWLAxiom axioma_subclase = factory.getOWLDeclarationAxiom(subclase);
 			OWLAxiom axioma_superclase = factory.getOWLDeclarationAxiom(superclase);
@@ -83,7 +83,7 @@ public class Ontol {
 	
 	public void addObjectProperty(String prop) {
 		try {
-			OWLObjectProperty property = factory.getOWLObjectProperty(prop,prefixManager);
+			OWLObjectProperty property = factory.getOWLObjectProperty(IRI.create(prop));
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
 			manager.addAxiom(ontology, axioma);
 
@@ -97,7 +97,6 @@ public class Ontol {
 			OWLObjectProperty property = factory.getOWLObjectProperty(IRI.create(prop));
 			OWLClass dom = factory.getOWLClass(IRI.create(dominio));
 			OWLClass rang = factory.getOWLClass(IRI.create(rango));
-			System.out.println(dom.toString());
 			OWLObjectPropertyDomainAxiom domain = factory.getOWLObjectPropertyDomainAxiom(property, dom);
 			OWLObjectPropertyRangeAxiom range = factory.getOWLObjectPropertyRangeAxiom(property, rang);
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
@@ -139,10 +138,11 @@ public class Ontol {
 	}
 
 	public void createInstanciaWithDataProperty(String prop,String nombre_instancia,String nombre_clase, double valor) {
+		// individuo ---propiedad--> valor
 		try {
 			//Sustraigo individuos
 			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
-			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(nombre_instancia, prefixManager);
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(IRI.create(nombre_instancia));
 
 			//Sustraigo la propiedad
 			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
@@ -170,8 +170,8 @@ public class Ontol {
 			//Sustraigo individuos
 			OWLClass clase_1 = factory.getOWLClass(IRI.create(clase_individuo1));
 			OWLClass clase_2 = factory.getOWLClass(IRI.create(clase_individuo1));
-			OWLNamedIndividual instancia_1 = factory.getOWLNamedIndividual(nombre_individuo1, prefixManager);
-			OWLNamedIndividual instancia_2 = factory.getOWLNamedIndividual(nombre_individuo2, prefixManager);
+			OWLNamedIndividual instancia_1 = factory.getOWLNamedIndividual(IRI.create(nombre_individuo1));
+			OWLNamedIndividual instancia_2 = factory.getOWLNamedIndividual(IRI.create(nombre_individuo2));
 			//Sustraigo la propiedad
 			OWLObjectProperty property = factory.getOWLObjectProperty(IRI.create(nombre_propiedad));
 			//creo las instancias y la propiedad
@@ -191,21 +191,27 @@ public class Ontol {
 
 	public void addActores(List<Actor> actores){
 		for (Actor actor: actores) {
-			System.out.println(actor.getName().trim().replace(" ", "_"));
-			createInstancia(actor.getName(),"Actor");
+			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating",actor.getName(),"http://dbpedia.org/ontology/Actor",actor.getAvg_calification());
 			}
 	}
 
 	public void addPeliculas(List<Pelicula> peliculas){
 		for (Pelicula pelicula: peliculas) {
+			System.out.printf(pelicula.toString());
 			//añado peliculas y actores.
 			for (Actor actor: pelicula.getReparto()){
 				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#isActorIn",actor.getName(),"http://dbpedia.org/ontology/Actor",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie");
 			}
+			for (String productora: pelicula.getProductoras()){
+				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",productora,"http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company");
+			}
+			for (String pais: pelicula.getPais()){
+				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#hasReleasingCountry",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pais,"http://www.movieontology.org/2009/10/01/Country");
+			}
+			for (String genero: pelicula.getGeneros()){
+				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#belongToGenre",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",genero,"http://www.movieontology.org/2009/10/01/movieontology.owl#Genre");
+			}
 			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getCalificacion());
-			createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#belongToGenre",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getGenero(),"http://www.movieontology.org/2009/10/01/movieontology.owl#Genre");
-			createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#hasReleasingCountry",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getPais(),"http://www.movieontology.org/2009/10/01/Country");
-			createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getProductora(),"http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company");
 		}
 	}
 	// Si come animal --> es carnivoro
@@ -214,9 +220,9 @@ public class Ontol {
 	public void addExpresion(String nombre_propiedad, String nombre_rango, String nombre_resultado) {
 		// rango cumple propiedad --equivalente--> resultado
 		try {
-			OWLObjectProperty propiedad = factory.getOWLObjectProperty(nombre_propiedad,prefixManager); 	//Recogemos la propiedad (objeto) de la ont. a partir de su nombre.
-			OWLClass rango_class = factory.getOWLClass(nombre_rango, prefixManager);						//Recogemos la clase del rango
-			OWLClass resultado_class = factory.getOWLClass(nombre_resultado, prefixManager);				//Recogemos la clase resultante
+			OWLObjectProperty propiedad = factory.getOWLObjectProperty(IRI.create(nombre_propiedad)); 	//Recogemos la propiedad (objeto) de la ont. a partir de su nombre.
+			OWLClass rango_class = factory.getOWLClass(IRI.create(nombre_rango));						//Recogemos la clase del rango
+			OWLClass resultado_class = factory.getOWLClass(IRI.create(nombre_resultado));				//Recogemos la clase resultante
 			OWLObjectSomeValuesFrom cualidad = factory.getOWLObjectSomeValuesFrom(propiedad, rango_class);	//Definimos la cualidad en funcion de la propiedad y el rango
 			OWLAxiom axioma = factory.getOWLEquivalentClassesAxiom(resultado_class, cualidad);						//Definimos el axioma en funcion de la clase resultante y la cualidad que se le aplica
 			manager.addAxiom(ontology, axioma);
