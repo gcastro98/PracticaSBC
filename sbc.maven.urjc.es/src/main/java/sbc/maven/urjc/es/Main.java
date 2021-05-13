@@ -1,13 +1,9 @@
 package sbc.maven.urjc.es;
 
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.google.gson.JsonObject;
 import org.xml.sax.SAXException;
 
 
@@ -80,20 +76,32 @@ public class Main {
         Jena jena = new Jena();
         //jena.executeQuery_aux(auxContinent);
 
-        List<String> listado = jena.executeQuery(auxJohnnyDepp);
-        Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
-        actors.addAll(tuple.getActores());
-        movies.addAll(tuple.getPelicula());
-        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
+//        List<String> listado = jena.executeQuery(auxJohnnyDepp);
+//        Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
+//        actors.addAll(tuple.getActores());
+//        movies.addAll(tuple.getPelicula());
+//        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
 //        System.out.println(actors.toString());
 //        System.out.println(actors.toString());
 
 
 //        API_Connection.PeticionAPI(aux, "WIKI");
-//        Ontol ontologia = new Ontol("MovieOntology.owl","http://www.movieontology.org/2010/01/movieontology.owl");
-//        ontologia.createOntology();
-//        ontologia.loadOntology();
-//        ontologia.saveOntology();
+        Ontol ontologia = new Ontol("NuevaOntologia.owl","http://sbc2019/ont");
+        ontologia.createOntology();
+        ontologia.addClass("Animal");
+        ontologia.addSubClass("Vaca", "Animal");
+        ontologia.addSubClass("Tigre", "Animal");
+        ontologia.addObjectProperty("come","Animal", "Animal");
+        ontologia.addExpresion("come", "Animal","Carnivoro");
+
+        ontologia.addExpresion("come", "Vaca","Tigre");
+//        ontologia.addDataProperty("Calificacion", "xsd:double");
+//        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
+//        ontologia.addPeliculas(movies);
+//        ontologia.addActores(actors);
+        ontologia.saveOntology();
+        ontologia.razonador();
+
     }
 }
 

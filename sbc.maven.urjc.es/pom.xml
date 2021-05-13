@@ -10,7 +10,7 @@
 		<dependency>
 			<groupId>net.sourceforge.owlapi</groupId>
 			<artifactId>owlapi-distribution</artifactId>
-			<version>5.1.17</version>
+			<version>4.5.9</version>
 		</dependency>
 		<!--ELK 0.4.3 Librería jar -->
 		<dependency>
@@ -90,6 +90,7 @@
 			<artifactId>jersey-hk2</artifactId>
 			<version>2.28</version>
 		</dependency>
+
 	</dependencies>
 	<properties>
 		<maven.compiler.source>1.8</maven.compiler.source>

@@ -1,6 +1,7 @@
 package sbc.maven.urjc.es;
 
 import java.io.File;
+import java.util.List;
 
 import org.semanticweb.elk.owlapi.ElkReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
@@ -30,7 +31,7 @@ public class Ontol {
 	
 	public void createOntology() {
 		try {
-			ontology = manager.createOntology(IRI.create("http://www.movieontology.org/2010/01/movieontology.owl"));
+			ontology = manager.createOntology(IRI.create(ontoIRI));
 		}catch (OWLOntologyCreationException e){
 			System.out.println("Ontología no creada: "+e.getMessage());
 		}
@@ -53,7 +54,7 @@ public class Ontol {
 		}
 	}
 	
-	public void addAxioma(String name) {
+	public void addClass(String name) {
 		try {
 			OWLClass clase = factory.getOWLClass(name, prefixManager);
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(clase);
@@ -63,18 +64,24 @@ public class Ontol {
 		}
 	}
 	
-	public void addsubclass(String subClass, String superClass) {
+	public void addSubClass(String subClass, String superClass) {
 		try {
 			OWLClass subclase = factory.getOWLClass(subClass, prefixManager);
 			OWLClass superclase = factory.getOWLClass(superClass, prefixManager);
-			OWLSubClassOfAxiom axioma = factory.getOWLSubClassOfAxiom(subclase, superclase);
-			manager.addAxiom(ontology, axioma);
+
+			OWLAxiom axioma_subclase = factory.getOWLDeclarationAxiom(subclase);
+			OWLAxiom axioma_superclase = factory.getOWLDeclarationAxiom(superclase);
+			OWLSubClassOfAxiom axioma_derivado = factory.getOWLSubClassOfAxiom(subclase, superclase);
+
+			manager.addAxiom(ontology, axioma_superclase);
+			manager.addAxiom(ontology, axioma_subclase);
+			manager.addAxiom(ontology, axioma_derivado);
 		}catch (Exception e){
 			System.out.println("Error al añadir subclase no guardada: "+e.getMessage());
 		}
 	}
 	
-	public void addProperty(String prop) {
+	public void addObjectProperty(String prop) {
 		try {
 			OWLObjectProperty property = factory.getOWLObjectProperty(prop,prefixManager);
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
@@ -85,11 +92,12 @@ public class Ontol {
 		}
 	}
 	
-	public void addProperty(String prop,String dominio, String rango) {
+	public void addObjectProperty(String prop, String dominio, String rango) { //AddObjectProperty
 		try {
 			OWLObjectProperty property = factory.getOWLObjectProperty(prop,prefixManager);
 			OWLClass dom = factory.getOWLClass(dominio, prefixManager);
 			OWLClass rang = factory.getOWLClass(rango, prefixManager);
+			System.out.println(dom.toString());
 			OWLObjectPropertyDomainAxiom domain = factory.getOWLObjectPropertyDomainAxiom(property, dom);
 			OWLObjectPropertyRangeAxiom range = factory.getOWLObjectPropertyRangeAxiom(property, rang);
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
@@ -102,6 +110,7 @@ public class Ontol {
 			System.out.println("Error al crear la propiedad: "+e.getMessage());
 		}
 	}
+
 	
 	public void addDataProperty(String prop, String rango) {
 		try {
@@ -111,12 +120,11 @@ public class Ontol {
 			OWLDataPropertyRangeAxiom range = factory.getOWLDataPropertyRangeAxiom(property, rang);
 			manager.addAxiom(ontology, axioma);
 			manager.addAxiom(ontology, range);
-
-
 		}catch (Exception e){
 			System.out.println("Error al crear el data property: "+e.getMessage());
 		}
 	}
+
 	
 	public void createInstancia(String nombre,String clase) {
 		try {
@@ -129,14 +137,30 @@ public class Ontol {
 			System.out.println("Error al crear la instancia: "+e.getMessage());
 		}
 	}
-	
-	public void expCarnivoro(String prop, String clase) {
+
+	public void addActores(List<Actor> actores){
+		for (Actor actor: actores) {
+			System.out.println(actor.getName().trim().replace(" ", "_"));
+			createInstancia(actor.getName().trim().replace(" ", "_").replace(":", "_"), "Actor");
+			}
+	}
+
+	public void addPeliculas(List<Pelicula> peliculas){
+		for (Pelicula pelicula: peliculas) {
+			System.out.println(pelicula.getTitulo().trim().replace(" ", "_"));
+			createInstancia(pelicula.getTitulo().trim().replace(" ", "_").replace(":", "_"), "Pelicula");
+
+		}
+	}
+	// Si come animal --> es carnivoro
+	// Prop = que  ; Clasefrom = el que ; Clase_eq = quien
+	public void addExpresion(String nombre_propiedad, String nombre_rango, String nombre_resultado) {
 		try {
-			OWLObjectProperty property = factory.getOWLObjectProperty(prop,prefixManager);
-			OWLClass clas = factory.getOWLClass(clase, prefixManager);
-			OWLClass carnivoro_clas = factory.getOWLClass("Carnivoro", prefixManager);
-			OWLObjectSomeValuesFrom from = factory.getOWLObjectSomeValuesFrom(property, clas);
-			OWLEquivalentClassesAxiom axioma = factory.getOWLEquivalentClassesAxiom(from,carnivoro_clas);
+			OWLObjectProperty propiedad = factory.getOWLObjectProperty(nombre_propiedad,prefixManager); 	//Recogemos la propiedad (objeto) de la ont. a partir de su nombre.
+			OWLClass rango_class = factory.getOWLClass(nombre_rango, prefixManager);						//Recogemos la clase del rango
+			OWLClass resultado_class = factory.getOWLClass(nombre_resultado, prefixManager);				//Recogemos la clase resultante
+			OWLObjectSomeValuesFrom cualidad = factory.getOWLObjectSomeValuesFrom(propiedad, rango_class);	//Definimos la cualidad en funcion de la propiedad y el rango
+			OWLAxiom axioma = factory.getOWLEquivalentClassesAxiom(resultado_class, cualidad);						//Definimos el axioma en funcion de la clase resultante y la cualidad que se le aplica
 			manager.addAxiom(ontology, axioma);
 
 		}catch (Exception e){
@@ -148,12 +172,11 @@ public class Ontol {
 		OWLReasonerFactory a = new ElkReasonerFactory();
 		OWLReasoner reasoner = a.createReasoner(ontology);
 		reasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY);
-		System.out.println(reasoner.isConsistent());
 		if (reasoner.isConsistent()) {
 			InferredOntologyGenerator iog = new InferredOntologyGenerator(reasoner);
 			OWLOntology infOnt = manager.createOntology(IRI.create("http://sbc2019inf/onto"));
 			iog.fillOntology(manager.getOWLDataFactory(), infOnt);
-			manager.saveOntology(infOnt,IRI.create(new File("infOntology")));
+			manager.saveOntology(infOnt,IRI.create(new File("infOntology.owl")));
 		}
 		reasoner.dispose();
 		}catch(Exception e){
