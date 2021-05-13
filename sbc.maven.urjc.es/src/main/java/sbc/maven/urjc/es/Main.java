@@ -93,8 +93,8 @@ public class Main {
         ontologia.addSubClass("Tigre", "Animal");
         ontologia.addObjectProperty("come","Animal", "Animal");
         ontologia.addExpresion("come", "Animal","Carnivoro");
-
-        ontologia.addExpresion("come", "Vaca","Tigre");
+        ontologia.createInstanciaWithProperty("come","Tigreton","Tigre","Querie","Vaca");
+        ontologia.addObjectProperty("come", "Tigre","Vaca");
 //        ontologia.addDataProperty("Calificacion", "xsd:double");
 //        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
 //        ontologia.addPeliculas(movies);

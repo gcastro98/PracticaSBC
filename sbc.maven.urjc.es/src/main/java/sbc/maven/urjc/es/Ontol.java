@@ -138,6 +138,32 @@ public class Ontol {
 		}
 	}
 
+	public void createInstanciaWithProperty(String nombre_propiedad, String nombre_individuo1,String clase_individuo1,String nombre_individuo2,String clase_individuo2) {
+		// individuo_1 ---propiedad---> individuo_2
+		try {
+			//Sustraigo individuos
+
+			OWLClass clase_1 = factory.getOWLClass(clase_individuo1, prefixManager);
+			OWLClass clase_2 = factory.getOWLClass(clase_individuo2, prefixManager);
+			OWLNamedIndividual instancia_1 = factory.getOWLNamedIndividual(nombre_individuo1, prefixManager);
+			OWLNamedIndividual instancia_2 = factory.getOWLNamedIndividual(nombre_individuo2, prefixManager);
+			//Sustraigo la propiedad
+			OWLObjectProperty property = factory.getOWLObjectProperty(nombre_propiedad,prefixManager);
+			//creo las instancias y la propiedad
+			createInstancia(nombre_individuo1,clase_individuo1);
+			createInstancia(nombre_individuo2,clase_individuo2);
+			addObjectProperty(nombre_propiedad,clase_individuo1,clase_individuo2);
+
+			//creo la instancias con su propiedad
+			OWLAxiom axioma_total = factory.getOWLObjectPropertyAssertionAxiom(property,instancia_1,instancia_2);
+			manager.addAxiom(ontology, axioma_total);
+
+
+		}catch (Exception e){
+			System.out.println("Error al crear la instancia: "+e.getMessage());
+		}
+	}
+
 	public void addActores(List<Actor> actores){
 		for (Actor actor: actores) {
 			System.out.println(actor.getName().trim().replace(" ", "_"));
@@ -155,6 +181,7 @@ public class Ontol {
 	// Si come animal --> es carnivoro
 	// Prop = que  ; Clasefrom = el que ; Clase_eq = quien
 	public void addExpresion(String nombre_propiedad, String nombre_rango, String nombre_resultado) {
+		// rango cumple propiedad --equivalente--> resultado
 		try {
 			OWLObjectProperty propiedad = factory.getOWLObjectProperty(nombre_propiedad,prefixManager); 	//Recogemos la propiedad (objeto) de la ont. a partir de su nombre.
 			OWLClass rango_class = factory.getOWLClass(nombre_rango, prefixManager);						//Recogemos la clase del rango
