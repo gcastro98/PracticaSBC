@@ -74,33 +74,38 @@ public class Main {
 
 
         Jena jena = new Jena();
-        //jena.executeQuery_aux(auxContinent);
+        jena.executeQuery_aux(auxContinent);
 
-//        List<String> listado = jena.executeQuery(auxJohnnyDepp);
-//        Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
-//        actors.addAll(tuple.getActores());
-//        movies.addAll(tuple.getPelicula());
-//        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
-//        System.out.println(actors.toString());
-//        System.out.println(actors.toString());
+        List<String> listado = jena.executeQuery(auxJohnnyDepp);
+        Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
+        actors.addAll(tuple.getActores());
+        movies.addAll(tuple.getPelicula());
+        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
+
 
 
 //        API_Connection.PeticionAPI(aux, "WIKI");
-        Ontol ontologia = new Ontol("NuevaOntologia.owl","http://sbc2019/ont");
-        ontologia.createOntology();
-        ontologia.addClass("Animal");
-        ontologia.addSubClass("Vaca", "Animal");
-        ontologia.addSubClass("Tigre", "Animal");
-        ontologia.addObjectProperty("come","Animal", "Animal");
-        ontologia.addExpresion("come", "Animal","Carnivoro");
-        ontologia.createInstanciaWithProperty("come","Tigreton","Tigre","Querie","Vaca");
-        ontologia.addObjectProperty("come", "Tigre","Vaca");
+        Ontol ontologia = new Ontol("MovieOntology.owl","http://sbc2019Movie/ont");
+        ontologia.loadOntology();
 //        ontologia.addDataProperty("Calificacion", "xsd:double");
 //        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
-//        ontologia.addPeliculas(movies);
+        ontologia.addPeliculas(movies);
 //        ontologia.addActores(actors);
         ontologia.saveOntology();
         ontologia.razonador();
+
+        //Ontología de prueba
+        /*Ontol ontologia2 = new Ontol("NuevaOntologia.owl","http://sbc2019/ont");
+        ontologia2.createOntology();
+        ontologia2.addClass("Animal");
+        ontologia2.addSubClass("Vaca", "Animal");
+        ontologia2.addSubClass("Tigre", "Animal");
+        ontologia2.addObjectProperty("come","Animal", "Animal");
+        ontologia2.addExpresion("come", "Animal","Carnivoro");
+        ontologia2.createInstanciaWithObjetivoProperty("come","Tigreton","Tigre","Querie","Vaca");
+        ontologia2.addObjectProperty("come", "Tigre","Vaca");
+        ontologia2.saveOntology();
+        ontologia2.razonador();*/
 
     }
 }

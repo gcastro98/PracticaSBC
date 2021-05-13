@@ -48,7 +48,7 @@ public class Ontol {
 
 	public void saveOntology() {
 		try {
-			manager.saveOntology(ontology,IRI.create(owlFile));
+			manager.saveOntology(ontology,IRI.create(new File ("ontologyCreada.owl")));
 		}catch (Exception e){
 			System.out.println("Ontología no guardada: "+e.getMessage());
 		}
@@ -94,9 +94,9 @@ public class Ontol {
 	
 	public void addObjectProperty(String prop, String dominio, String rango) { //AddObjectProperty
 		try {
-			OWLObjectProperty property = factory.getOWLObjectProperty(prop,prefixManager);
-			OWLClass dom = factory.getOWLClass(dominio, prefixManager);
-			OWLClass rang = factory.getOWLClass(rango, prefixManager);
+			OWLObjectProperty property = factory.getOWLObjectProperty(IRI.create(prop));
+			OWLClass dom = factory.getOWLClass(IRI.create(dominio));
+			OWLClass rang = factory.getOWLClass(IRI.create(rango));
 			System.out.println(dom.toString());
 			OWLObjectPropertyDomainAxiom domain = factory.getOWLObjectPropertyDomainAxiom(property, dom);
 			OWLObjectPropertyRangeAxiom range = factory.getOWLObjectPropertyRangeAxiom(property, rang);
@@ -112,12 +112,12 @@ public class Ontol {
 	}
 
 	
-	public void addDataProperty(String prop, String rango) {
+	public void addDataProperty(String prop, String dominio) {
 		try {
-			OWLDataProperty property = factory.getOWLDataProperty(prop,prefixManager);
-			OWLDatatype rang = factory.getOWLDatatype(rango, prefixManager);
+			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
+			OWLDatatype dom = factory.getOWLDatatype(IRI.create(dominio));
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
-			OWLDataPropertyRangeAxiom range = factory.getOWLDataPropertyRangeAxiom(property, rang);
+			OWLDataPropertyRangeAxiom range = factory.getOWLDataPropertyRangeAxiom(property, dom);
 			manager.addAxiom(ontology, axioma);
 			manager.addAxiom(ontology, range);
 		}catch (Exception e){
@@ -128,8 +128,8 @@ public class Ontol {
 	
 	public void createInstancia(String nombre,String clase) {
 		try {
-			OWLClass clas = factory.getOWLClass(clase, prefixManager);
-			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(nombre, prefixManager);
+			OWLClass clas = factory.getOWLClass(IRI.create(clase));
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(nombre,prefixManager);
 			OWLClassAssertionAxiom axioma = factory.getOWLClassAssertionAxiom(clas, instancia);
 			manager.addAxiom(ontology, axioma);
 
@@ -138,17 +138,42 @@ public class Ontol {
 		}
 	}
 
-	public void createInstanciaWithProperty(String nombre_propiedad, String nombre_individuo1,String clase_individuo1,String nombre_individuo2,String clase_individuo2) {
+	public void createInstanciaWithDataProperty(String prop,String nombre_instancia,String nombre_clase, double valor) {
+		try {
+			//Sustraigo individuos
+			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(nombre_instancia, prefixManager);
+
+			//Sustraigo la propiedad
+			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
+
+
+			//creo instancias
+			createInstancia(nombre_instancia,nombre_clase);
+			addDataProperty(prop,nombre_clase);
+
+			//creo la instancias con su propiedad
+			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
+			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
+			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,valor);
+			manager.addAxiom(ontology, axioma);
+			manager.addAxiom(ontology, axioma_final);
+
+		}catch (Exception e){
+			System.out.println("Error al crear la instancia: "+e.getMessage());
+		}
+	}
+
+	public void createInstanciaWithObjetivoProperty(String nombre_propiedad, String nombre_individuo1, String clase_individuo1, String nombre_individuo2, String clase_individuo2) {
 		// individuo_1 ---propiedad---> individuo_2
 		try {
 			//Sustraigo individuos
-
-			OWLClass clase_1 = factory.getOWLClass(clase_individuo1, prefixManager);
-			OWLClass clase_2 = factory.getOWLClass(clase_individuo2, prefixManager);
+			OWLClass clase_1 = factory.getOWLClass(IRI.create(clase_individuo1));
+			OWLClass clase_2 = factory.getOWLClass(IRI.create(clase_individuo1));
 			OWLNamedIndividual instancia_1 = factory.getOWLNamedIndividual(nombre_individuo1, prefixManager);
 			OWLNamedIndividual instancia_2 = factory.getOWLNamedIndividual(nombre_individuo2, prefixManager);
 			//Sustraigo la propiedad
-			OWLObjectProperty property = factory.getOWLObjectProperty(nombre_propiedad,prefixManager);
+			OWLObjectProperty property = factory.getOWLObjectProperty(IRI.create(nombre_propiedad));
 			//creo las instancias y la propiedad
 			createInstancia(nombre_individuo1,clase_individuo1);
 			createInstancia(nombre_individuo2,clase_individuo2);
@@ -167,19 +192,25 @@ public class Ontol {
 	public void addActores(List<Actor> actores){
 		for (Actor actor: actores) {
 			System.out.println(actor.getName().trim().replace(" ", "_"));
-			createInstancia(actor.getName().trim().replace(" ", "_").replace(":", "_"), "Actor");
+			createInstancia(actor.getName(),"Actor");
 			}
 	}
 
 	public void addPeliculas(List<Pelicula> peliculas){
 		for (Pelicula pelicula: peliculas) {
-			System.out.println(pelicula.getTitulo().trim().replace(" ", "_"));
-			createInstancia(pelicula.getTitulo().trim().replace(" ", "_").replace(":", "_"), "Pelicula");
-
+			//añado peliculas y actores.
+			for (Actor actor: pelicula.getReparto()){
+				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#isActorIn",actor.getName(),"http://dbpedia.org/ontology/Actor",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie");
+			}
+			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getCalificacion());
+			createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#belongToGenre",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getGenero(),"http://www.movieontology.org/2009/10/01/movieontology.owl#Genre");
+			createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#hasReleasingCountry",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getPais(),"http://www.movieontology.org/2009/10/01/Country");
+			createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#isProducedBy",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getProductora(),"http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company");
 		}
 	}
 	// Si come animal --> es carnivoro
-	// Prop = que  ; Clasefrom = el que ; Clase_eq = quien
+	// Prop = que  ; Clasefrom = el qu
+	// e ; Clase_eq = quien
 	public void addExpresion(String nombre_propiedad, String nombre_rango, String nombre_resultado) {
 		// rango cumple propiedad --equivalente--> resultado
 		try {

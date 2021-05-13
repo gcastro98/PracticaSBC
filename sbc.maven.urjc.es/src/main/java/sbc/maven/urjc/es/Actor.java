@@ -7,11 +7,8 @@ public class Actor {
     private double avg_calification;
     private int nmovies;
 
-    public Actor() {
-    }
-
     public Actor(String name) {
-        this.name = name;
+        this.name = name.trim().replace(" ","_");
         this.avg_calification = 0;
         this.nmovies = 0;
     }

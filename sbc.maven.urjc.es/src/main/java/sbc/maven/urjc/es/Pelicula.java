@@ -13,20 +13,16 @@ public class Pelicula {
     private String productora;
 
     public Pelicula(String titulo, List<Actor> reparto, String cal, String pais, String genero, String productora) {
-        this.titulo = titulo;
+        this(titulo,  cal,  pais,  genero,  productora);
         this.reparto = reparto;
-        this.calificacion = !cal.equals("N/A") ? Double.parseDouble(cal) : 0.0;
-        this.pais = pais;
-        this.genero = genero;
-        this.productora = productora;
     }
     public Pelicula(String titulo, String cal, String pais, String genero, String productora) {
-        this.titulo = titulo;
         this.reparto = new ArrayList<Actor>();
+        this.titulo = titulo.trim().replace(" ","_").replace(":", "_");
         this.calificacion = !cal.equals("N/A") ? Double.parseDouble(cal) : 0.0;
-        this.pais = pais;
-        this.genero = genero;
-        this.productora = productora;
+        this.pais = pais.trim().replace(" ","_").replace(":", "_");
+        this.genero = genero.trim().replace(" ","_").replace(":", "_");
+        this.productora = productora.trim().replace(" ","_").replace(":", "_");
     }
 
     public String getTitulo() {
