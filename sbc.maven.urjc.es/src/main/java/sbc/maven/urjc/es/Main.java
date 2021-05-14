@@ -1,18 +1,25 @@
 package sbc.maven.urjc.es;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.github.jsonldjava.utils.JsonUtils;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.xml.sax.SAXException;
 
 
 public class Main {
     public static void main(String[] args) throws IOException, SAXException {
-    	List<Pelicula> movies = new ArrayList<Pelicula>();
-    	List<Actor> actors = new ArrayList<Actor>();
+        List<Pelicula> movies = new ArrayList<Pelicula>();
+        List<Actor> actors = new ArrayList<Actor>();
 
-        String auxJohnnyDepp =
+        String query_films_disney_by_jd =
                 "PREFIX dbo: <http://dbpedia.org/ontology/>\r\n" +
                         "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\n" +
                         "PREFIX yago: <http://dbpedia.org/class/yago/>\r\n" +
@@ -29,7 +36,7 @@ public class Main {
                         "Filter(regex(str(?name),\"Johnny Depp\"))\r\n" +
                         " }\r\n" +
                         "ORDER BY DESC(?nombre_pelicula)\r\n"
-                        +"Limit 300\r\n";
+                        + "Limit 300\r\n";
 
         String auxnFilms =
                 "PREFIX dbo: <http://dbpedia.org/ontology/>\r\n" +
@@ -46,7 +53,7 @@ public class Main {
                         " }\r\n" +
                         "GROUP BY ?nombre_distribuidor\r\n" +
                         "ORDER BY ?nombre_distribuidor\r\n";
-        String auxFilms =
+        String query_films_disney =
                 "PREFIX dbo: <http://dbpedia.org/ontology/>\r\n" +
                         "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\n" +
                         "PREFIX yago: <http://dbpedia.org/class/yago/>\r\n" +
@@ -60,7 +67,25 @@ public class Main {
                         "Filter(regex(str(?nombre_distribuidor),\"Walt Disney Studios Motion Pictures\"))" +
                         " }\r\n" +
                         "ORDER BY DESC(?nombre_pelicula)\r\n"
-                        +"Limit 300\r\n";
+                        + "Limit 300\r\n";
+        String query_films_disney_has_book =
+                "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
+                        "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
+                        "\n" +
+                        "SELECT Distinct ?nombre_pelicula\n" +
+                        "WHERE\n" +
+                        "{ \n" +
+                        "?book rdf:type dbo:Book.\n" +
+                        "?pelicula rdf:type dbo:Film.\n" +
+                        "?book foaf:name ?nombre_pelicula.\n" +
+                        "?pelicula foaf:name ?nombre_pelicula.\n" +
+                        "\n" +
+                        "Filter (regex(str(?nombre_pelicula),\"..*\"))\n" +
+                        "\n" +
+                        "?pelicula dbo:distributor ?productora.\n" +
+                        "?productora foaf:name ?nombre_prod.\n" +
+                        "Filter (regex(str(?nombre_prod),\"Disney\"))\n" +
+                        "}";
         String auxContinent =
                 "PREFIX other: <http://www.loc.gov/mads/rdf/v1#>\r\n" +
                         "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\n" +
@@ -72,26 +97,32 @@ public class Main {
                         " }\r\n" +
                         "Limit 100\r\n";
 
-
+//
         Jena jena = new Jena();
-        List<String> listado = jena.executeQuery(auxJohnnyDepp);
+        List<String> listado = jena.executeQuery(query_films_disney_by_jd, "nombre_pelicula");
         Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
         actors.addAll(tuple.getActores());
         movies.addAll(tuple.getPelicula());
-        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
 
 
 
-//        API_Connection.PeticionAPI(aux, "WIKI");
+////      API_Connection.PeticionAPI(aux, "WIKI");
+        Importer_office importer_office = new Importer_office();
+        List<Pelicula> movies_from_xlsx = importer_office.movies_from_excel("view.xlsx").getPelicula();
+        movies = importer_office.cribado(movies, movies_from_xlsx);
+
+
         Ontol ontologia = new Ontol("MovieOntology.owl","http://sbc2019Movie/ont/");
         ontologia.loadOntology();
 //        ontologia.addDataProperty("Calificacion", "xsd:double");
 //        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
         ontologia.addPeliculas(movies);
         ontologia.addActores(actors);
-//        ontologia.addActores(actors);
         ontologia.saveOntology();
         //ontologia.razonador();
+
+
+//        System.out.println("XLSX celda "+xlsxcell.getStringCellValue()+" "+ xlsxsheet.getFirstRowNum());
 
         //Ontología de prueba
         /*Ontol ontologia2 = new Ontol("NuevaOntologia.owl","http://sbc2019/ont");
@@ -107,6 +138,9 @@ public class Main {
         ontologia2.razonador();*/
 
     }
+
+
+
 }
 
 

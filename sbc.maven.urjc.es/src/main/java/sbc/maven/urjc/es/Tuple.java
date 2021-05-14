@@ -19,4 +19,12 @@ public class Tuple<Actores, Peliculas> {
 	public List<Pelicula> getPelicula() {
 		return peliculas;
 	}
+
+	public void addActor(Actor actor){
+		actores.add(actor);
+	}
+
+	public void addPelicula(Pelicula pelicula){
+		peliculas.add(pelicula);
+	}
 }

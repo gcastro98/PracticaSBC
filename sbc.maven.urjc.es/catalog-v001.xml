@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog prefer="public" xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
     <group id="Folder Repository, directory=, recursive=true, Auto-Update=true, version=2" prefer="public" xml:base="">
-        <uri id="Automatically generated entry, Timestamp=1620942421031" name="http://sbc2019inf/onto" uri="infOntology.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1620942421031" name="http://www.movieontology.org/2009/10/01/movieontology.owl" uri="ontologyCreada.owl"/>
-        <uri id="Automatically generated entry, Timestamp=1620942421031" name="http://www.movieontology.org/2009/11/09/movieontology.owl" uri="MovieOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1621019283601" name="http://sbc2019inf/onto" uri="infOntology.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1621019283601" name="http://www.movieontology.org/2009/10/01/movieontology.owl" uri="ontologyCreada.owl"/>
+        <uri id="Automatically generated entry, Timestamp=1621019283601" name="http://www.movieontology.org/2009/11/09/movieontology.owl" uri="MovieOntology.owl"/>
     </group>
 </catalog>

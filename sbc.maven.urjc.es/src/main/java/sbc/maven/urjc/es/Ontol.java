@@ -13,7 +13,9 @@ import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
 
 public class Ontol {
-	
+
+	private static final String xsd = "http://www.w3.org/2001/XMLSchema#";
+
 	String ontoIRI;
 	OWLOntologyManager manager;
 	OWLDataFactory factory;
@@ -150,7 +152,61 @@ public class Ontol {
 
 			//creo instancias
 			createInstancia(nombre_instancia,nombre_clase);
-			addDataProperty(prop,nombre_clase);
+			addDataProperty(prop,xsd+"double");
+
+			//creo la instancias con su propiedad
+			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
+			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
+			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,valor);
+			manager.addAxiom(ontology, axioma);
+			manager.addAxiom(ontology, axioma_final);
+
+		}catch (Exception e){
+			System.out.println("Error al crear la instancia: "+e.getMessage());
+		}
+	}
+
+	public void createInstanciaWithDataProperty(String prop,String nombre_instancia,String nombre_clase, long valor) {
+		// individuo ---propiedad--> valor
+		try {
+			//Sustraigo individuos
+			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(IRI.create(nombre_instancia));
+
+			//Sustraigo la propiedad
+			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
+
+
+			//creo instancias
+			createInstancia(nombre_instancia,nombre_clase);
+			addDataProperty(prop,xsd+"long");
+
+			//creo la instancias con su propiedad
+			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
+			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
+			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,valor);
+			manager.addAxiom(ontology, axioma);
+			manager.addAxiom(ontology, axioma_final);
+
+		}catch (Exception e){
+			System.out.println("Error al crear la instancia: "+e.getMessage());
+		}
+	}
+
+	public void createInstanciaWithDataProperty(String prop,String nombre_instancia,String nombre_clase, String valor) {
+		// individuo ---propiedad--> valor
+		try {
+			//Sustraigo individuos
+			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(IRI.create(nombre_instancia));
+
+			//Sustraigo la propiedad
+			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
+
+
+			//creo instancias
+			createInstancia(nombre_instancia,nombre_clase);
+			addDataProperty(prop,xsd+"string");
 
 			//creo la instancias con su propiedad
 			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
@@ -197,7 +253,6 @@ public class Ontol {
 
 	public void addPeliculas(List<Pelicula> peliculas){
 		for (Pelicula pelicula: peliculas) {
-			System.out.printf(pelicula.toString());
 			//añado peliculas y actores.
 			for (Actor actor: pelicula.getReparto()){
 				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#isActorIn",actor.getName(),"http://dbpedia.org/ontology/Actor",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie");
@@ -209,9 +264,12 @@ public class Ontol {
 				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#hasReleasingCountry",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pais,"http://www.movieontology.org/2009/10/01/Country");
 			}
 			for (String genero: pelicula.getGeneros()){
-				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#belongToGenre",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",genero,"http://www.movieontology.org/2009/10/01/movieontology.owl#Genre");
+				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",genero,"http://www.movieontology.org/2009/10/01/movieontology.owl#Genre");
 			}
 			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getCalificacion());
+			createInstanciaWithDataProperty(ontoIRI+"presupuesto",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getPresupuesto());
+			createInstanciaWithDataProperty(ontoIRI+"MPAA_rating",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getMPAA_rating());
+			createInstanciaWithDataProperty(ontoIRI+"beneficio_bruto",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getBeneficio_bruto());
 		}
 	}
 	// Si come animal --> es carnivoro

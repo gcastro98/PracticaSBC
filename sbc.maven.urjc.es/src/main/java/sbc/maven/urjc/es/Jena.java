@@ -21,8 +21,7 @@ public class Jena {
         this.result = null;
     }
 
-    public List<String> executeQuery(String aux_consulta) {
-
+    public List<String> executeQuery(String aux_consulta, String var_query) {
         Query query = QueryFactory.create(aux_consulta);
         QueryExecution exe = QueryExecutionFactory.sparqlService(service, query);
         result = exe.execSelect();
@@ -32,9 +31,12 @@ public class Jena {
         if (result != null) {
             while (result.hasNext()) {
                 QuerySolution qResult = result.next();
-                String aux = qResult.get("nombre_pelicula").toString();
-                String title = (String) aux.subSequence(0, aux.length() - 3);
-                listado.add(title);
+                for (String var: var_query.split(";")) {
+                    String aux = qResult.get(var).toString();
+                    String title = (String) aux.subSequence(0, aux.length() - 3);
+                    listado.add(title);
+                }
+
 //			 Iterator<String> itNames = qResult.varNames();
 
 //			 while(itNames.hasNext()){

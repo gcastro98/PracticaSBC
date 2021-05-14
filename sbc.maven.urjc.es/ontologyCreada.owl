@@ -2,6 +2,7 @@
 <rdf:RDF xmlns="http://www.movieontology.org/2009/10/01/movieontology.owl#"
      xml:base="http://www.movieontology.org/2009/10/01/movieontology.owl"
      xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:ont="http://sbc2019Movie/ont/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:www="http://www.movieontology.org/2009/11/09/"
@@ -90,15 +91,6 @@
     ///////////////////////////////////////////////////////////////////////////////////////
      -->
 
-    
-
-
-    <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#belongToGenre -->
-
-    <owl:ObjectProperty rdf:about="http://www.movieontology.org/2009/10/01/movieontology.owl#belongToGenre">
-        <rdfs:domain rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <rdfs:range rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
-    </owl:ObjectProperty>
     
 
 
@@ -471,13 +463,35 @@
     
 
 
+    <!-- http://sbc2019Movie/ont/MPAA_rating -->
+
+    <owl:DatatypeProperty rdf:about="http://sbc2019Movie/ont/MPAA_rating">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbc2019Movie/ont/beneficio_bruto -->
+
+    <owl:DatatypeProperty rdf:about="http://sbc2019Movie/ont/beneficio_bruto">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbc2019Movie/ont/presupuesto -->
+
+    <owl:DatatypeProperty rdf:about="http://sbc2019Movie/ont/presupuesto">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+    </owl:DatatypeProperty>
+    
+
+
     <!-- http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating -->
 
     <owl:DatatypeProperty rdf:about="http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <rdfs:range rdf:resource="http://dbpedia.org/ontology/Actor"/>
-        <rdfs:range rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#double"/>
     </owl:DatatypeProperty>
     
@@ -1159,14 +1173,17 @@
 
     <owl:NamedIndividual rdf:about="Alice_Through_the_Looking_Glass">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Family"/>
-        <belongToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
         <hasReleasingCountry rdf:resource="UK"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Roth_Films"/>
         <isProducedBy rdf:resource="Team_Todd"/>
         <isProducedBy rdf:resource="Tim_Burton"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</imdbrating>
     </owl:NamedIndividual>
     
@@ -1176,15 +1193,26 @@
 
     <owl:NamedIndividual rdf:about="Alice_in_Wonderland">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Family"/>
-        <belongToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
         <hasReleasingCountry rdf:resource="UK"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Roth_Films"/>
         <isProducedBy rdf:resource="Team_Todd"/>
         <isProducedBy rdf:resource="Zanuck_Company"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.4</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Animation -->
+
+    <owl:NamedIndividual rdf:about="Animation">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
     </owl:NamedIndividual>
     
 
@@ -1210,6 +1238,19 @@
     
 
 
+    <!-- Another_48_Hrs. -->
+
+    <owl:NamedIndividual rdf:about="Another_48_Hrs.">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.53518976E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.8E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Armie_Hammer -->
 
     <owl:NamedIndividual rdf:about="Armie_Hammer">
@@ -1220,10 +1261,88 @@
     
 
 
+    <!-- Back_to_the_Future_Part_II -->
+
+    <owl:NamedIndividual rdf:about="Back_to_the_Future_Part_II">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Science_Fiction"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.32E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Back_to_the_Future_Part_III -->
+
+    <owl:NamedIndividual rdf:about="Back_to_the_Future_Part_III">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.44527584E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Batman -->
+
+    <owl:NamedIndividual rdf:about="Batman">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.11348928E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Beauty_and_the_Beast -->
+
+    <owl:NamedIndividual rdf:about="Beauty_and_the_Beast">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Animation"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.7735056E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Bird_on_a_Wire -->
+
+    <owl:NamedIndividual rdf:about="Bird_on_a_Wire">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.387E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.0</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Blind_Wink -->
 
     <owl:NamedIndividual rdf:about="Blind_Wink">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Born_on_the_Fourth_of_July -->
+
+    <owl:NamedIndividual rdf:about="Born_on_the_Fourth_of_July">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="War"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.61001696E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.4E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1238,10 +1357,44 @@
     
 
 
+    <!-- City_Slickers -->
+
+    <owl:NamedIndividual rdf:about="City_Slickers">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.79033792E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.7E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.7</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Comedy -->
 
     <owl:NamedIndividual rdf:about="Comedy">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Crime -->
+
+    <owl:NamedIndividual rdf:about="Crime">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Dances_with_Wolves -->
+
+    <owl:NamedIndividual rdf:about="Dances_with_Wolves">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Western"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.24208832E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.2E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1256,14 +1409,69 @@
     
 
 
+    <!-- Days_of_Thunder -->
+
+    <owl:NamedIndividual rdf:about="Days_of_Thunder">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.57920736E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.0</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Dead_Men_Tell_No_Tales -->
 
     <owl:NamedIndividual rdf:about="Dead_Men_Tell_No_Tales">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Drama"/>
+        <belongsToGenre rdf:resource="Drama"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Unknown"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Dead_Poets_Society -->
+
+    <owl:NamedIndividual rdf:about="Dead_Poets_Society">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.35860112E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.64E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.1</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Dick_Tracy -->
+
+    <owl:NamedIndividual rdf:about="Dick_Tracy">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Crime"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.03738728E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.7E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Die_Hard_2 -->
+
+    <owl:NamedIndividual rdf:about="Die_Hard_2">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Thriller"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.40031088E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1272,6 +1480,32 @@
 
     <owl:NamedIndividual rdf:about="Drama">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Driving_Miss_Daisy -->
+
+    <owl:NamedIndividual rdf:about="Driving_Miss_Daisy">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.45793296E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7500000.0</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Edward_Scissorhands -->
+
+    <owl:NamedIndividual rdf:about="Edward_Scissorhands">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.3E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1302,6 +1536,58 @@
     
 
 
+    <!-- Father_of_the_Bride -->
+
+    <owl:NamedIndividual rdf:about="Father_of_the_Bride">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Romance"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.9325776E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.5</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Field_of_Dreams -->
+
+    <owl:NamedIndividual rdf:about="Field_of_Dreams">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.4431624E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Flatliners -->
+
+    <owl:NamedIndividual rdf:about="Flatliners">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Horror"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.1489264E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Fried_Green_Tomatoes -->
+
+    <owl:NamedIndividual rdf:about="Fried_Green_Tomatoes">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.19418504E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.7</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Geoffrey_Rush -->
 
     <owl:NamedIndividual rdf:about="Geoffrey_Rush">
@@ -1310,6 +1596,32 @@
         <isActorIn rdf:resource="Pirates_of_the_Caribbean__The_Curse_of_the_Black_Pearl"/>
         <isActorIn rdf:resource="Pirates_of_the_Caribbean__At_World&apos;s_End"/>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.23</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Ghost -->
+
+    <owl:NamedIndividual rdf:about="Ghost">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Thriller"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.05E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.2E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Ghostbusters_II -->
+
+    <owl:NamedIndividual rdf:about="Ghostbusters_II">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.15394736E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.7E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1325,12 +1637,46 @@
     
 
 
+    <!-- Home_Alone -->
+
+    <owl:NamedIndividual rdf:about="Home_Alone">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.76684672E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.8E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Horror -->
+
+    <owl:NamedIndividual rdf:about="Horror">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Ian_McShane -->
 
     <owl:NamedIndividual rdf:about="Ian_McShane">
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Actor"/>
         <isActorIn rdf:resource="Pirates_of_the_Caribbean__On_Stranger_Tides"/>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Indiana_Jones_and_the_Last_Crusade -->
+
+    <owl:NamedIndividual rdf:about="Indiana_Jones_and_the_Last_Crusade">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.74171808E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.8E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.2</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1347,14 +1693,17 @@
 
     <owl:NamedIndividual rdf:about="Into_the_Woods">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Comedy"/>
-        <belongToGenre rdf:resource="Drama"/>
-        <belongToGenre rdf:resource="Fantasy"/>
-        <belongToGenre rdf:resource="Musical"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Musical"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Lucamar"/>
         <isProducedBy rdf:resource="Marc_Platt_Productions"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</imdbrating>
     </owl:NamedIndividual>
     
@@ -1426,6 +1775,32 @@
     
 
 
+    <!-- Kindergarten_Cop -->
+
+    <owl:NamedIndividual rdf:about="Kindergarten_Cop">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.01957696E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Lethal_Weapon_2 -->
+
+    <owl:NamedIndividual rdf:about="Lethal_Weapon_2">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.27853984E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Lucamar -->
 
     <owl:NamedIndividual rdf:about="Lucamar">
@@ -1453,6 +1828,19 @@
     
 
 
+    <!-- Misery -->
+
+    <owl:NamedIndividual rdf:about="Misery">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.1276872E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Musical -->
 
     <owl:NamedIndividual rdf:about="Musical">
@@ -1469,6 +1857,19 @@
         <isActorIn rdf:resource="Pirates_of_the_Caribbean__At_World&apos;s_End"/>
         <isActorIn rdf:resource="Pirates_of_the_Caribbean__Dead_Man&apos;s_Chest"/>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.46</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Parenthood -->
+
+    <owl:NamedIndividual rdf:about="Parenthood">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.26297832E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1497,13 +1898,16 @@
 
     <owl:NamedIndividual rdf:about="Pirates_of_the_Caribbean__On_Stranger_Tides">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Action"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
         <hasReleasingCountry rdf:resource="UK"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <isProducedBy rdf:resource="Walt_Disney_Pictures"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
     </owl:NamedIndividual>
     
@@ -1513,12 +1917,41 @@
 
     <owl:NamedIndividual rdf:about="Pirates_of_the_Caribbean__The_Curse_of_the_Black_Pearl">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Action"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Presumed_Innocent -->
+
+    <owl:NamedIndividual rdf:about="Presumed_Innocent">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Crime"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.21303184E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.2E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.9</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Pretty_Woman -->
+
+    <owl:NamedIndividual rdf:about="Pretty_Woman">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Romance"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.63E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.4E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1533,10 +1966,52 @@
     
 
 
+    <!-- Romance -->
+
+    <owl:NamedIndividual rdf:about="Romance">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Roth_Films -->
 
     <owl:NamedIndividual rdf:about="Roth_Films">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Science_Fiction -->
+
+    <owl:NamedIndividual rdf:about="Science_Fiction">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Sleeping_with_the_Enemy -->
+
+    <owl:NamedIndividual rdf:about="Sleeping_with_the_Enemy">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.74999008E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.9E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Steel_Magnolias -->
+
+    <owl:NamedIndividual rdf:about="Steel_Magnolias">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.5904088E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.3</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1549,17 +2024,132 @@
     
 
 
+    <!-- Teenage_Mutant_Ninja_Turtles -->
+
+    <owl:NamedIndividual rdf:about="Teenage_Mutant_Ninja_Turtles">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.02E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.35E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Teenage_Mutant_Ninja_Turtles_II -->
+
+    <owl:NamedIndividual rdf:about="Teenage_Mutant_Ninja_Turtles_II">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.86E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- The_Godfather__Part_III -->
+
+    <owl:NamedIndividual rdf:about="The_Godfather__Part_III">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.36766064E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.4E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- The_Hunt_for_Red_October -->
+
+    <owl:NamedIndividual rdf:about="The_Hunt_for_Red_October">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Thriller"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.992E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- The_Little_Mermaid -->
+
+    <owl:NamedIndividual rdf:about="The_Little_Mermaid">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Animation"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.223E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- The_Lone_Ranger -->
 
     <owl:NamedIndividual rdf:about="The_Lone_Ranger">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Action"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Western"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Western"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Blind_Wink"/>
         <isProducedBy rdf:resource="Infinitum_Nihil"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.4</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- The_Silence_of_the_Lambs -->
+
+    <owl:NamedIndividual rdf:about="The_Silence_of_the_Lambs">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Crime"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.72742912E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.9E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- The_War_of_the_Roses -->
+
+    <owl:NamedIndividual rdf:about="The_War_of_the_Roses">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.602E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Three_Men_and_a_Little_Lady -->
+
+    <owl:NamedIndividual rdf:about="Three_Men_and_a_Little_Lady">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.16E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Thriller -->
+
+    <owl:NamedIndividual rdf:about="Thriller">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
     </owl:NamedIndividual>
     
 
@@ -1582,6 +2172,19 @@
     
 
 
+    <!-- Total_Recall -->
+
+    <owl:NamedIndividual rdf:about="Total_Recall">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Science_Fiction"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6131792E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- UK -->
 
     <owl:NamedIndividual rdf:about="UK">
@@ -1594,6 +2197,19 @@
 
     <owl:NamedIndividual rdf:about="USA">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Uncle_Buck -->
+
+    <owl:NamedIndividual rdf:about="Uncle_Buck">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.9258536E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1614,10 +2230,31 @@
     
 
 
+    <!-- War -->
+
+    <owl:NamedIndividual rdf:about="War">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Western -->
 
     <owl:NamedIndividual rdf:about="Western">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- When_Harry_Met_Sally... -->
+
+    <owl:NamedIndividual rdf:about="When_Harry_Met_Sally...">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Romance"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.28E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.6E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
     </owl:NamedIndividual>
     
 
@@ -1640,16 +2277,71 @@
     
 
 
+    <!-- Honey,_I_Shrunk_the_Kids -->
+
+    <owl:NamedIndividual rdf:about="Honey,_I_Shrunk_the_Kids">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Family"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.22724176E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.2E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.3</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Hot_Shots! -->
+
+    <owl:NamedIndividual rdf:about="Hot_Shots!">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Comedy"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.8109616E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Look_Who&apos;s_Talking -->
+
+    <owl:NamedIndividual rdf:about="Look_Who&apos;s_Talking">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Romance"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.96E8</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7500000.0</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- National_Lampoon&apos;s_Christmas_Vacation -->
+
+    <owl:NamedIndividual rdf:about="National_Lampoon&apos;s_Christmas_Vacation">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.132E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.7E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
     <!-- Pirates_of_the_Caribbean__At_World&apos;s_End -->
 
     <owl:NamedIndividual rdf:about="Pirates_of_the_Caribbean__At_World&apos;s_End">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Action"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <isProducedBy rdf:resource="Walt_Disney_Pictures"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.1</imdbrating>
     </owl:NamedIndividual>
     
@@ -1659,13 +2351,55 @@
 
     <owl:NamedIndividual rdf:about="Pirates_of_the_Caribbean__Dead_Man&apos;s_Chest">
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
-        <belongToGenre rdf:resource="Action"/>
-        <belongToGenre rdf:resource="Adventure"/>
-        <belongToGenre rdf:resource="Fantasy"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <belongsToGenre rdf:resource="Adventure"/>
+        <belongsToGenre rdf:resource="Fantasy"/>
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <isProducedBy rdf:resource="Walt_Disney_Pictures"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.3</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Tango_&amp;_Cash -->
+
+    <owl:NamedIndividual rdf:about="Tango_&amp;_Cash">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Action"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.3408616E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.5E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- The_Naked_Gun_2_1/2__The_Smell_of_Fear -->
+
+    <owl:NamedIndividual rdf:about="The_Naked_Gun_2_1/2__The_Smell_of_Fear">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Drama"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.69E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.3E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.5</imdbrating>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- Turner_&amp;_Hooch -->
+
+    <owl:NamedIndividual rdf:about="Turner_&amp;_Hooch">
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+        <belongsToGenre rdf:resource="Crime"/>
+        <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.1079912E7</ont:beneficio_bruto>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.3E7</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
     </owl:NamedIndividual>
     
 
