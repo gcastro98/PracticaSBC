@@ -1,7 +1,0 @@
-{
-	"player":{
-		"dorsal": "18",
-		"name": "Diego Costa",
-		"teamName": "Atlético de Madrid"
-	}
-}
