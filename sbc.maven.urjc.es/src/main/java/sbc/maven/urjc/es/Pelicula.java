@@ -73,7 +73,7 @@ public class Pelicula {
         unknown.add("Unknown");
         if( map != null && !map.isEmpty() ){
             this.titulo = map.containsKey("titulo") ? map.get("titulo").trim().replaceAll("[\\/ :]", "_") : this.titulo;
-            this.calificacion = map.containsKey("evaluacion") ? Double.parseDouble(map.get("evaluacion").trim()) : this.calificacion;
+            this.calificacion = map.containsKey("calificacion") ? Double.parseDouble(map.get("calificacion").trim()) : this.calificacion;
             this.MPAA_rating = map.containsKey("MPAA_rating") ? map.get("MPAA_rating") : this.MPAA_rating;
             this.presupuesto = map.containsKey("presupuesto") ? Long.parseLong(map.get("presupuesto").trim()) : this.presupuesto;
             this.beneficio_bruto = map.containsKey("beneficio_bruto") ? Long.parseLong(map.get("beneficio_bruto").trim()) : this.beneficio_bruto;;

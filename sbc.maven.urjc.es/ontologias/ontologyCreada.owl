@@ -474,7 +474,15 @@
     <!-- http://sbc2019Movie/ont/beneficio_bruto -->
 
     <owl:DatatypeProperty rdf:about="http://sbc2019Movie/ont/beneficio_bruto">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://sbc2019Movie/ont/descripcion -->
+
+    <owl:DatatypeProperty rdf:about="http://sbc2019Movie/ont/descripcion">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -482,7 +490,7 @@
     <!-- http://sbc2019Movie/ont/presupuesto -->
 
     <owl:DatatypeProperty rdf:about="http://sbc2019Movie/ont/presupuesto">
-        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#long"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -503,6 +511,7 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
         <rdfs:domain rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
     </owl:DatatypeProperty>
     
 
@@ -1182,9 +1191,11 @@
         <isProducedBy rdf:resource="Team_Todd"/>
         <isProducedBy rdf:resource="Tim_Burton"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -1202,9 +1213,11 @@
         <isProducedBy rdf:resource="Team_Todd"/>
         <isProducedBy rdf:resource="Zanuck_Company"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.4</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -1236,9 +1249,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.53518976E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.8E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">153518974 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Jack Cates once again enlists the aid of ex-con Reggie Hammond--this time, to take down The Iceman, a ruthless drug lord operating in the San Francisco bay area.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">38000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-06-08</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">95</runtime>
     </owl:NamedIndividual>
     
 
@@ -1259,9 +1275,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.32E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">332000000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">After visiting 2015, Marty McFly must repeat his visit to 1955 to prevent disastrous changes to 1985...without interfering with his first trip.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-11-20</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</runtime>
     </owl:NamedIndividual>
     
 
@@ -1272,9 +1291,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.44527584E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">244527583 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Learning about the death of Doc Brown in 1885, Marty travels back in time to save him. But when the fuel tank on the time machine is punctured, the two must figure out a way to escape the Old West before Emmet is murdered.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-05-25</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">118</runtime>
     </owl:NamedIndividual>
     
 
@@ -1285,9 +1307,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.11348928E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">411348924 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Dark Knight of Gotham City begins his war on crime with his first major enemy being the clownishly homicidal Joker.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">35000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-06-23</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">126</runtime>
     </owl:NamedIndividual>
     
 
@@ -1298,9 +1323,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.7735056E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">377350553 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A prince cursed to spend his days as a hideous monster sets out to regain his humanity by earning a young womans love.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-11-13</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">84</runtime>
     </owl:NamedIndividual>
     
 
@@ -1311,9 +1339,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.387E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">138700000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An old flame discovers her ex-boyfriend from the past is a relocated FBI informant out to stop the bad guys.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-05-18</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">110</runtime>
     </owl:NamedIndividual>
     
 
@@ -1332,9 +1363,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.61001696E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.4E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">161001698 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The biography of Ron Kovic. Paralyzed in the Vietnam war, he becomes an anti-war and pro-human rights political activist after feeling betrayed by the country he fought for.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-12-20</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">145</runtime>
     </owl:NamedIndividual>
     
 
@@ -1355,9 +1389,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.79033792E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.7E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">179033791 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">On the verge of turning 40, an unhappy Manhattan yuppie is roped into joining his two friends on a cattle drive in the southwest.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">27000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.7</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-06-07</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">112</runtime>
     </owl:NamedIndividual>
     
 
@@ -1376,9 +1413,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.24208832E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.2E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">424208848 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lieutenant John Dunbar, assigned to a remote western Civil War outpost, befriends wolves and Indians, making him an intolerable aberration in the military.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-11-09</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">181</runtime>
     </owl:NamedIndividual>
     
 
@@ -1399,9 +1439,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.57920736E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">157920733 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A young hot-shot stock car driver gets his chance to compete at the top level.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">60000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-06-27</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</runtime>
     </owl:NamedIndividual>
     
 
@@ -1414,9 +1457,11 @@
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -1427,9 +1472,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.35860112E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.64E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">235860116 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">English teacher John Keating inspires his students to look at poetry with a different perspective of authentic knowledge and feelings.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16400000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.1</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-06-02</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">129</runtime>
     </owl:NamedIndividual>
     
 
@@ -1440,9 +1488,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.03738728E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.7E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">103738726 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The comic strip detective finds his life vastly complicated when Breathless Mahoney makes advances towards him while he is trying to battle Big Boy Caprices united mob.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">47000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-06-15</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">103</runtime>
     </owl:NamedIndividual>
     
 
@@ -1453,9 +1504,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.40031088E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">240031094 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">John McClane attempts to avert disaster as rogue military operatives seize control of Dulles International Airport in Washington, D.C.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">70000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-07-02</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</runtime>
     </owl:NamedIndividual>
     
 
@@ -1474,9 +1528,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.45793296E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7500000.0</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">145793296 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An old Jewish woman and her African-American chauffeur in the American South have a relationship that grows and improves over the years.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7500000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.4</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-12-13</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">99</runtime>
     </owl:NamedIndividual>
     
 
@@ -1487,9 +1544,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.3E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">53000000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An artificial man, who was incompletely constructed and has scissors for hands, leads a solitary life. Then one day, a suburban lady meets him and introduces him to her world.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.9</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-12-05</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</runtime>
     </owl:NamedIndividual>
     
 
@@ -1526,9 +1586,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.9325776E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">89325780 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">With his oldest daughters wedding approaching, a father finds himself reluctant to let go.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.5</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-12-20</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">105</runtime>
     </owl:NamedIndividual>
     
 
@@ -1539,9 +1602,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.4431624E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">84431625 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An Iowa corn farmer, hearing voices, interprets them as a command to build a baseball diamond in his fields; he does, and the 1919 Chicago White Sox come.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-04-21</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</runtime>
     </owl:NamedIndividual>
     
 
@@ -1552,9 +1618,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.1489264E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">61489265 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Five medical students experiment with near death experiences, until the dark consequences of past tragedies begin to jeopardize their lives.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-08-09</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">115</runtime>
     </owl:NamedIndividual>
     
 
@@ -1565,9 +1634,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.19418504E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">119418501 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A housewife who is unhappy with her life befriends an old lady in a nursing home and is enthralled by the tales she tells of people she used to know.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.7</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-12-27</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">130</runtime>
     </owl:NamedIndividual>
     
 
@@ -1590,9 +1662,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.05E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.2E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">505000000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">After a young man is murdered, his spirit stays behind to warn his lover of impending danger, with the help of a reluctant psychic.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-07-12</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">127</runtime>
     </owl:NamedIndividual>
     
 
@@ -1603,9 +1678,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.15394736E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.7E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">215394738 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The discovery of a massive river of ectoplasm and a resurgence of spectral activity allows the staff of Ghostbusters to revive the business.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">37000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-06-15</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">108</runtime>
     </owl:NamedIndividual>
     
 
@@ -1627,9 +1705,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.76684672E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.8E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">476684675 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">An eight-year-old troublemaker must protect his house from a pair of burglars when he is accidentally left home alone by his family during Christmas vacation.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">18000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-11-09</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">103</runtime>
     </owl:NamedIndividual>
     
 
@@ -1650,9 +1731,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.74171808E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.8E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">474171806 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In 1938, after his father Professor Henry Jones, Sr. goes missing while pursuing the Holy Grail, Professor Henry Indiana Jones, Jr. finds himself up against Adolf Hitlers Nazis again to stop them from obtaining its powers.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">48000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-05-24</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">127</runtime>
     </owl:NamedIndividual>
     
 
@@ -1678,9 +1762,11 @@
         <isProducedBy rdf:resource="Lucamar"/>
         <isProducedBy rdf:resource="Marc_Platt_Productions"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -1757,9 +1843,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.01957696E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">201957688 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A tough cop must pose as a kindergarten teacher in order to locate a dangerous criminals ex-wife, who may hold the key to putting him behind bars.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-12-21</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">111</runtime>
     </owl:NamedIndividual>
     
 
@@ -1770,9 +1859,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.27853984E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">227853986 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Riggs and Murtaugh are on the trail of South African diplomats who are using their immunity to engage in criminal activities.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-07-07</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">114</runtime>
     </owl:NamedIndividual>
     
 
@@ -1810,9 +1902,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.1276872E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">61276872 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">After a famous author is rescued from a car crash by a fan of his novels, he comes to realize that the care he is receiving is only the beginning of a nightmare of captivity and abuse.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.8</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-11-28</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">107</runtime>
     </owl:NamedIndividual>
     
 
@@ -1843,9 +1938,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.26297832E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">126297830 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Buckmans are a midwestern family all dealing with their lives: estranged relatives, raising children, pressures of the job, and learning to be a good parent and spouse.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">20000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-07-31</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">124</runtime>
     </owl:NamedIndividual>
     
 
@@ -1882,9 +1980,11 @@
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <isProducedBy rdf:resource="Walt_Disney_Pictures"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.6</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -1899,9 +1999,11 @@
         <hasReleasingCountry rdf:resource="USA"/>
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -1912,9 +2014,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.21303184E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.2E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">221303188 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">As a lawyer investigates the murder of a colleague, he finds himself more connected to the crime than anyone else.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">22000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.9</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-07-26</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">127</runtime>
     </owl:NamedIndividual>
     
 
@@ -1925,9 +2030,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.63E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.4E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">463000000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A man in a legal but hurtful business needs an escort for some social events, and hires a beautiful prostitute he meets... only to fall in love.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">14000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-03-23</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">119</runtime>
     </owl:NamedIndividual>
     
 
@@ -1956,9 +2064,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.74999008E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.9E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">174999005 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A young woman fakes her own death in an attempt to escape her nightmarish marriage, but discovers it is impossible to elude her controlling husband.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-02-08</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">99</runtime>
     </owl:NamedIndividual>
     
 
@@ -1969,9 +2080,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.69E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.7E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">96900000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">On the eve of retirement, Kirk and McCoy are charged with assassinating the Klingon High Chancellor and imprisoned. The Enterprise crew must help them escape to thwart a conspiracy aimed at sabotaging the last best hope for peace.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">27000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-12-05</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">113</runtime>
     </owl:NamedIndividual>
     
 
@@ -1982,9 +2096,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.5904088E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">95904091 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A young beautician, newly arrived in a small Louisiana town, finds work at the local salon, where a small group of women share a close bond of friendship, and welcome her into the fold.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.3</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-11-15</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">119</runtime>
     </owl:NamedIndividual>
     
 
@@ -2003,9 +2120,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.02E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.35E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">202000000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Four teenage mutant ninja turtles emerge from the shadows to protect New York City from a gang of criminal ninjas.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13500000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-03-30</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</runtime>
     </owl:NamedIndividual>
     
 
@@ -2016,9 +2136,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.86E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">78600000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Turtles and the Shredder battle once again, this time for the last canister of the ooze that created the Turtles, with which Shredder wants to unleash an army of new mutants.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">25000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-03-22</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">88</runtime>
     </owl:NamedIndividual>
     
 
@@ -2029,9 +2152,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.36766064E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.4E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">136766062 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In the midst of trying to legitimize his business dealings in New York City and Italy in 1979, aging Mafia Don Michael Corleone seeks to avow for his sins, while taking his nephew Vincent Mancini under his wing.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">54000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-12-24</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">162</runtime>
     </owl:NamedIndividual>
     
 
@@ -2042,9 +2168,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.992E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">199200000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">In November 1984, the Soviet Unions best submarine Captain in their newest sub violates orders and heads for the U.S. Is he trying to defect or to start a war?</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">30000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-03-02</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">134</runtime>
     </owl:NamedIndividual>
     
 
@@ -2055,9 +2184,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.223E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">4.0E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">222300000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A mermaid princess makes a Faustian bargain in an attempt to become human and win a princes love.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">40000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-11-17</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">83</runtime>
     </owl:NamedIndividual>
     
 
@@ -2073,9 +2205,11 @@
         <isProducedBy rdf:resource="Blind_Wink"/>
         <isProducedBy rdf:resource="Infinitum_Nihil"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.4</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -2086,9 +2220,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">8.69E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.3E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">86900000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Lieutenant Frank Drebin discovers that his ex-girlfriend&apos;s new beau is involved in a plot to kidnap a scientist who advocates solar energy.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">23000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.5</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-06-28</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">85</runtime>
     </owl:NamedIndividual>
     
 
@@ -2099,9 +2236,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.72742912E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.9E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">272742922 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A young F.B.I. cadet must receive the help of an incarcerated and manipulative cannibal killer to help catch another serial killer, a madman who skins his victims.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">19000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">8.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-02-01</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">119</runtime>
     </owl:NamedIndividual>
     
 
@@ -2112,9 +2252,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.602E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">160200000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A married couple try everything to get each other to leave the house in a vicious divorce battle.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-12-08</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">116</runtime>
     </owl:NamedIndividual>
     
 
@@ -2125,9 +2268,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.16E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.1E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71600000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Sequel to Three Men and a Baby (1987), Mary starts school. Actress mom is now living in the apartment in NYC with the biological dad and 2 honorary dads, who are still actor, architect and cartoonist. Mom&apos;s English boyfriend proposes.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">11000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.1</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-11-21</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">104</runtime>
     </owl:NamedIndividual>
     
 
@@ -2156,9 +2302,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6131792E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">261317921 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">When a man goes for virtual vacation memories of the planet Mars, an unexpected and harrowing series of events forces him to go to the planet for real - or does he?</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">65000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.5</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1990-06-01</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">113</runtime>
     </owl:NamedIndividual>
     
 
@@ -2185,9 +2334,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.9258536E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">79258538 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Bachelor and all-round slob Buck babysits his brothers rebellious teenage daughter and her cute younger brother and sister.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">15000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.0</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-08-16</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</runtime>
     </owl:NamedIndividual>
     
 
@@ -2223,9 +2375,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">9.28E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.6E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">92800000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Harry and Sally have known each other for years, and are very good friends, but they fear sex would ruin the friendship.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">16000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-07-21</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">96</runtime>
     </owl:NamedIndividual>
     
 
@@ -2254,9 +2409,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.22724176E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">3.2E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">222724172 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The scientist father of a teenage girl and boy accidentally shrinks his and two other neighborhood teens to the size of insects. Now the teens must fight diminutive dangers as the father searches for them.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">32000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.3</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-06-22</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</runtime>
     </owl:NamedIndividual>
     
 
@@ -2267,9 +2425,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.8109616E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.6E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">181096164 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">A parody of Top Gun (1986) in which a talented but unstable fighter pilot must overcome the ghosts of his father and save a mission sabotaged by greedy weapons manufacturers.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">26000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1991-07-31</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">84</runtime>
     </owl:NamedIndividual>
     
 
@@ -2280,9 +2441,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.96E8</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7500000.0</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">296000000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">After a single, career-minded woman is left on her own to give birth to the child of a married man, she finds a new romantic chance in a cab driver. Meanwhile, the point-of-view of the newborn boy is narrated through voice-over.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">7500000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">5.9</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-10-12</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">93</runtime>
     </owl:NamedIndividual>
     
 
@@ -2293,9 +2457,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG-13</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.132E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">2.7E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71320000 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">The Griswold familys plans for a big family Christmas predictably turn into a big disaster.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">27000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.6</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-12-01</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">97</runtime>
     </owl:NamedIndividual>
     
 
@@ -2311,9 +2478,11 @@
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <isProducedBy rdf:resource="Walt_Disney_Pictures"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.1</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -2329,9 +2498,11 @@
         <isProducedBy rdf:resource="Jerry_Bruckheimer_Films"/>
         <isProducedBy rdf:resource="Walt_Disney_Pictures"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Unknown</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">0.0</ont:presupuesto>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string"></ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">0 €</ont:presupuesto>
         <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.3</imdbrating>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">0</runtime>
     </owl:NamedIndividual>
     
 
@@ -2342,9 +2513,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">R</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">6.3408616E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">5.5E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">63408614 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Framed by their ruthless arch-nemesis, a mismatched LAPD crime-fighting duo has to put its differences aside to even the score with the evil kingpin who put them behind bars once and for all.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">55000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">6.8</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-12-22</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">104</runtime>
     </owl:NamedIndividual>
     
 
@@ -2355,9 +2529,12 @@
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <belongsToGenre rdf:resource="Unknown"/>
         <ont:MPAA_rating rdf:datatype="http://www.w3.org/2001/XMLSchema#string">PG</ont:MPAA_rating>
-        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">7.1079912E7</ont:beneficio_bruto>
-        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#float">1.3E7</ont:presupuesto>
-        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">0.0</imdbrating>
+        <ont:beneficio_bruto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">71079915 €</ont:beneficio_bruto>
+        <ont:descripcion rdf:datatype="http://www.w3.org/2001/XMLSchema#string">Det. Scott Turner (Tom Hanks) is an uptight, by-the-book police officer. When his friend Amos Reed (John McIntire), the proprietor of a junkyard, is killed, Turner reluctantly inherits the man&apos;s dog. Turner adjusts to life with the dog to help solve a murder case.</ont:descripcion>
+        <ont:presupuesto rdf:datatype="http://www.w3.org/2001/XMLSchema#string">13000000 €</ont:presupuesto>
+        <imdbrating rdf:datatype="http://www.w3.org/2001/XMLSchema#double">7.2</imdbrating>
+        <releasedate rdf:datatype="http://www.w3.org/2001/XMLSchema#string">1989-07-28</releasedate>
+        <runtime rdf:datatype="http://www.w3.org/2001/XMLSchema#integer">100</runtime>
     </owl:NamedIndividual>
     
 

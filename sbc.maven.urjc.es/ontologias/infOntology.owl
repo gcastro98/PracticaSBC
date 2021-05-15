@@ -1,12 +1,12 @@
 <?xml version="1.0"?>
-<rdf:RDF xmlns="http://sbc2019inf/onto#"
-     xml:base="http://sbc2019inf/onto"
+<rdf:RDF xmlns="http://sbc2019Movie/ont/"
+     xml:base="http://sbc2019Movie/ont/"
      xmlns:owl="http://www.w3.org/2002/07/owl#"
      xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
      xmlns:xml="http://www.w3.org/XML/1998/namespace"
      xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
      xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#">
-    <owl:Ontology rdf:about="http://sbc2019inf/onto"/>
+    <owl:Ontology rdf:about="http://sbc2019Movie/ont/"/>
     
 
 
@@ -712,6 +712,15 @@
     
 
 
+    <!-- Another_48_Hrs. -->
+
+    <owl:Thing rdf:about="Another_48_Hrs.">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Armie_Hammer -->
 
     <owl:Thing rdf:about="Armie_Hammer">
@@ -722,11 +731,65 @@
     
 
 
+    <!-- Back_to_the_Future_Part_II -->
+
+    <owl:Thing rdf:about="Back_to_the_Future_Part_II">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Back_to_the_Future_Part_III -->
+
+    <owl:Thing rdf:about="Back_to_the_Future_Part_III">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Batman -->
+
+    <owl:Thing rdf:about="Batman">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Beauty_and_the_Beast -->
+
+    <owl:Thing rdf:about="Beauty_and_the_Beast">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Bird_on_a_Wire -->
+
+    <owl:Thing rdf:about="Bird_on_a_Wire">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Blind_Wink -->
 
     <owl:Thing rdf:about="Blind_Wink">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company"/>
+    </owl:Thing>
+    
+
+
+    <!-- Born_on_the_Fourth_of_July -->
+
+    <owl:Thing rdf:about="Born_on_the_Fourth_of_July">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
     
 
@@ -741,11 +804,29 @@
     
 
 
+    <!-- City_Slickers -->
+
+    <owl:Thing rdf:about="City_Slickers">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Comedy -->
 
     <owl:Thing rdf:about="Comedy">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:Thing>
+    
+
+
+    <!-- Dances_with_Wolves -->
+
+    <owl:Thing rdf:about="Dances_with_Wolves">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
     
 
@@ -760,9 +841,45 @@
     
 
 
+    <!-- Days_of_Thunder -->
+
+    <owl:Thing rdf:about="Days_of_Thunder">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Dead_Men_Tell_No_Tales -->
 
     <owl:Thing rdf:about="Dead_Men_Tell_No_Tales">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Dead_Poets_Society -->
+
+    <owl:Thing rdf:about="Dead_Poets_Society">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Dick_Tracy -->
+
+    <owl:Thing rdf:about="Dick_Tracy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Die_Hard_2 -->
+
+    <owl:Thing rdf:about="Die_Hard_2">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
@@ -774,6 +891,24 @@
     <owl:Thing rdf:about="Drama">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
+    </owl:Thing>
+    
+
+
+    <!-- Driving_Miss_Daisy -->
+
+    <owl:Thing rdf:about="Driving_Miss_Daisy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Edward_Scissorhands -->
+
+    <owl:Thing rdf:about="Edward_Scissorhands">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
     
 
@@ -806,12 +941,66 @@
     
 
 
+    <!-- Father_of_the_Bride -->
+
+    <owl:Thing rdf:about="Father_of_the_Bride">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Field_of_Dreams -->
+
+    <owl:Thing rdf:about="Field_of_Dreams">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Flatliners -->
+
+    <owl:Thing rdf:about="Flatliners">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Fried_Green_Tomatoes -->
+
+    <owl:Thing rdf:about="Fried_Green_Tomatoes">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Geoffrey_Rush -->
 
     <owl:Thing rdf:about="Geoffrey_Rush">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Actor"/>
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- Ghost -->
+
+    <owl:Thing rdf:about="Ghost">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Ghostbusters_II -->
+
+    <owl:Thing rdf:about="Ghostbusters_II">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
     
 
@@ -826,12 +1015,30 @@
     
 
 
+    <!-- Home_Alone -->
+
+    <owl:Thing rdf:about="Home_Alone">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Ian_McShane -->
 
     <owl:Thing rdf:about="Ian_McShane">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Actor"/>
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- Indiana_Jones_and_the_Last_Crusade -->
+
+    <owl:Thing rdf:about="Indiana_Jones_and_the_Last_Crusade">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
     
 
@@ -913,6 +1120,24 @@
     
 
 
+    <!-- Kindergarten_Cop -->
+
+    <owl:Thing rdf:about="Kindergarten_Cop">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Lethal_Weapon_2 -->
+
+    <owl:Thing rdf:about="Lethal_Weapon_2">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Lucamar -->
 
     <owl:Thing rdf:about="Lucamar">
@@ -941,6 +1166,15 @@
     
 
 
+    <!-- Misery -->
+
+    <owl:Thing rdf:about="Misery">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Musical -->
 
     <owl:Thing rdf:about="Musical">
@@ -956,6 +1190,15 @@
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Actor"/>
         <rdf:type rdf:resource="http://dbpedia.org/ontology/Person"/>
+    </owl:Thing>
+    
+
+
+    <!-- Parenthood -->
+
+    <owl:Thing rdf:about="Parenthood">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
     
 
@@ -998,6 +1241,24 @@
     
 
 
+    <!-- Presumed_Innocent -->
+
+    <owl:Thing rdf:about="Presumed_Innocent">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Pretty_Woman -->
+
+    <owl:Thing rdf:about="Pretty_Woman">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Richard_Anderson -->
 
     <owl:Thing rdf:about="Richard_Anderson">
@@ -1017,6 +1278,33 @@
     
 
 
+    <!-- Sleeping_with_the_Enemy -->
+
+    <owl:Thing rdf:about="Sleeping_with_the_Enemy">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Star_Trek_VI__The_Undiscovered_Country -->
+
+    <owl:Thing rdf:about="Star_Trek_VI__The_Undiscovered_Country">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Steel_Magnolias -->
+
+    <owl:Thing rdf:about="Steel_Magnolias">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Team_Todd -->
 
     <owl:Thing rdf:about="Team_Todd">
@@ -1026,9 +1314,90 @@
     
 
 
+    <!-- Teenage_Mutant_Ninja_Turtles -->
+
+    <owl:Thing rdf:about="Teenage_Mutant_Ninja_Turtles">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Teenage_Mutant_Ninja_Turtles_II -->
+
+    <owl:Thing rdf:about="Teenage_Mutant_Ninja_Turtles_II">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- The_Godfather__Part_III -->
+
+    <owl:Thing rdf:about="The_Godfather__Part_III">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- The_Hunt_for_Red_October -->
+
+    <owl:Thing rdf:about="The_Hunt_for_Red_October">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- The_Little_Mermaid -->
+
+    <owl:Thing rdf:about="The_Little_Mermaid">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- The_Lone_Ranger -->
 
     <owl:Thing rdf:about="The_Lone_Ranger">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- The_Naked_Gun_2_1_2__The_Smell_of_Fear -->
+
+    <owl:Thing rdf:about="The_Naked_Gun_2_1_2__The_Smell_of_Fear">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- The_Silence_of_the_Lambs -->
+
+    <owl:Thing rdf:about="The_Silence_of_the_Lambs">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- The_War_of_the_Roses -->
+
+    <owl:Thing rdf:about="The_War_of_the_Roses">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Three_Men_and_a_Little_Lady -->
+
+    <owl:Thing rdf:about="Three_Men_and_a_Little_Lady">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>
@@ -1054,6 +1423,15 @@
     
 
 
+    <!-- Total_Recall -->
+
+    <owl:Thing rdf:about="Total_Recall">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- UK -->
 
     <owl:Thing rdf:about="UK">
@@ -1072,10 +1450,20 @@
     
 
 
+    <!-- Uncle_Buck -->
+
+    <owl:Thing rdf:about="Uncle_Buck">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Unknown -->
 
     <owl:Thing rdf:about="Unknown">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Genre"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company"/>
     </owl:Thing>
     
@@ -1099,6 +1487,15 @@
     
 
 
+    <!-- When_Harry_Met_Sally... -->
+
+    <owl:Thing rdf:about="When_Harry_Met_Sally...">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- William_Fichtner -->
 
     <owl:Thing rdf:about="William_Fichtner">
@@ -1118,6 +1515,42 @@
     
 
 
+    <!-- Honey,_I_Shrunk_the_Kids -->
+
+    <owl:Thing rdf:about="Honey,_I_Shrunk_the_Kids">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Hot_Shots! -->
+
+    <owl:Thing rdf:about="Hot_Shots!">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Look_Who&apos;s_Talking -->
+
+    <owl:Thing rdf:about="Look_Who&apos;s_Talking">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- National_Lampoon&apos;s_Christmas_Vacation -->
+
+    <owl:Thing rdf:about="National_Lampoon&apos;s_Christmas_Vacation">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
     <!-- Pirates_of_the_Caribbean__At_World&apos;s_End -->
 
     <owl:Thing rdf:about="Pirates_of_the_Caribbean__At_World&apos;s_End">
@@ -1130,6 +1563,24 @@
     <!-- Pirates_of_the_Caribbean__Dead_Man&apos;s_Chest -->
 
     <owl:Thing rdf:about="Pirates_of_the_Caribbean__Dead_Man&apos;s_Chest">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Tango_&amp;_Cash -->
+
+    <owl:Thing rdf:about="Tango_&amp;_Cash">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+        <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
+    </owl:Thing>
+    
+
+
+    <!-- Turner_&amp;_Hooch -->
+
+    <owl:Thing rdf:about="Turner_&amp;_Hooch">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
         <rdf:type rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Thing>

@@ -78,7 +78,6 @@ public class Importer_office {
     public List<Pelicula> cribado(List<Pelicula> originales, List<Pelicula> candidatas){
         for (Pelicula candidata : candidatas){
             if (originales.contains(candidata)) {
-                System.out.println(candidata);
                 originales.get(originales.indexOf(candidata)).fusion_movie(candidata);
             } else {
                 originales.add(candidata);

@@ -11,6 +11,7 @@ import org.semanticweb.owlapi.reasoner.OWLReasoner;
 import org.semanticweb.owlapi.reasoner.OWLReasonerFactory;
 import org.semanticweb.owlapi.util.DefaultPrefixManager;
 import org.semanticweb.owlapi.util.InferredOntologyGenerator;
+import org.semanticweb.owlapi.vocab.OWL2Datatype;
 
 public class Ontol {
 
@@ -170,7 +171,6 @@ public class Ontol {
 		// individuo ---propiedad--> valor
 		try {
 			//Sustraigo individuos
-			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
 			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(IRI.create(nombre_instancia));
 
 			//Sustraigo la propiedad
@@ -179,10 +179,9 @@ public class Ontol {
 
 			//creo instancias
 			createInstancia(nombre_instancia,nombre_clase);
-			addDataProperty(prop,xsd+"long");
+			addDataProperty(prop,xsd+"decimal");
 
 			//creo la instancias con su propiedad
-			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
 			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,valor);
 			manager.addAxiom(ontology, axioma);
@@ -212,6 +211,59 @@ public class Ontol {
 			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
 			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
 			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,valor);
+			manager.addAxiom(ontology, axioma);
+			manager.addAxiom(ontology, axioma_final);
+
+		}catch (Exception e){
+			System.out.println("Error al crear la instancia: "+e.getMessage());
+		}
+	}
+	public void createInstanciaWithDataProperty(String prop,String nombre_instancia,String nombre_clase, int valor) {
+		// individuo ---propiedad--> valor
+		try {
+			//Sustraigo individuos
+			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(IRI.create(nombre_instancia));
+
+			//Sustraigo la propiedad
+			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
+
+
+			//creo instancias
+			createInstancia(nombre_instancia,nombre_clase);
+			addDataProperty(prop,xsd+"int");
+
+			//creo la instancias con su propiedad
+			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
+			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
+			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,valor);
+			manager.addAxiom(ontology, axioma);
+			manager.addAxiom(ontology, axioma_final);
+
+		}catch (Exception e){
+			System.out.println("Error al crear la instancia: "+e.getMessage());
+		}
+	}
+	public void createInstanciaWithDataPropertyDate(String prop,String nombre_instancia,String nombre_clase, String valor) {
+		// individuo ---propiedad--> valor
+		try {
+			//Sustraigo individuos
+			OWLClass clase = factory.getOWLClass(IRI.create(nombre_clase));
+			OWLNamedIndividual instancia = factory.getOWLNamedIndividual(IRI.create(nombre_instancia));
+
+			//Sustraigo la propiedad
+			OWLDataProperty property = factory.getOWLDataProperty(IRI.create(prop));
+
+
+			//creo instancias
+			createInstancia(nombre_instancia,nombre_clase);
+			addDataProperty(prop,xsd+"string");
+
+			//creo la instancias con su propiedad
+			OWLDatatype dom = factory.getOWLDatatype(IRI.create(nombre_clase));
+			OWLAxiom axioma = factory.getOWLDeclarationAxiom(property);
+			OWLLiteral dataLiteral = factory.getOWLLiteral(valor, OWL2Datatype.XSD_STRING);
+			OWLDataPropertyAssertionAxiom axioma_final = factory.getOWLDataPropertyAssertionAxiom(property,instancia,dataLiteral);
 			manager.addAxiom(ontology, axioma);
 			manager.addAxiom(ontology, axioma_final);
 
@@ -267,14 +319,15 @@ public class Ontol {
 				createInstanciaWithObjetivoProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#belongsToGenre",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",genero,"http://www.movieontology.org/2009/10/01/movieontology.owl#Genre");
 			}
 			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getCalificacion());
-			createInstanciaWithDataProperty(ontoIRI+"presupuesto",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getPresupuesto());
+			createInstanciaWithDataProperty(ontoIRI+"presupuesto",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getPresupuesto()+" €");
 			createInstanciaWithDataProperty(ontoIRI+"MPAA_rating",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getMPAA_rating());
-			createInstanciaWithDataProperty(ontoIRI+"beneficio_bruto",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getBeneficio_bruto());
+			createInstanciaWithDataProperty(ontoIRI+"beneficio_bruto",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getBeneficio_bruto()+" €");
+			createInstanciaWithDataProperty(ontoIRI+"descripcion",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getDescripcion());
+			if (!pelicula.getEstreno().isEmpty())createInstanciaWithDataPropertyDate("http://www.movieontology.org/2009/10/01/movieontology.owl#releasedate",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getEstreno());
+			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#runtime",pelicula.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",pelicula.getDuracion());
 		}
 	}
-	// Si come animal --> es carnivoro
-	// Prop = que  ; Clasefrom = el qu
-	// e ; Clase_eq = quien
+
 	public void addExpresion(String nombre_propiedad, String nombre_rango, String nombre_resultado) {
 		// rango cumple propiedad --equivalente--> resultado
 		try {
@@ -284,7 +337,6 @@ public class Ontol {
 			OWLObjectSomeValuesFrom cualidad = factory.getOWLObjectSomeValuesFrom(propiedad, rango_class);	//Definimos la cualidad en funcion de la propiedad y el rango
 			OWLAxiom axioma = factory.getOWLEquivalentClassesAxiom(resultado_class, cualidad);						//Definimos el axioma en funcion de la clase resultante y la cualidad que se le aplica
 			manager.addAxiom(ontology, axioma);
-
 		}catch (Exception e){
 			System.out.println("Error al crear la expresión de equivalencia.: "+e.getMessage());
 		}
@@ -296,30 +348,16 @@ public class Ontol {
 		reasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY);
 		if (reasoner.isConsistent()) {
 			InferredOntologyGenerator iog = new InferredOntologyGenerator(reasoner);
-			OWLOntology infOnt = manager.createOntology(IRI.create("http://sbc2019inf/onto"));
+			OWLOntology infOnt = manager.createOntology(IRI.create(ontoIRI));
 			iog.fillOntology(manager.getOWLDataFactory(), infOnt);
-			manager.saveOntology(infOnt,IRI.create(new File("infOntology.owl")));
+			manager.saveOntology(infOnt,IRI.create(new File("ontologias/infOntology.owl")));
 		}
 		reasoner.dispose();
 		}catch(Exception e){
 			System.out.println("Error al crear la expresión de equivalencia.: "+e.getMessage());
 		}
 	}
-	
-	
-	
-	/*public void expTigreComeVaca() {
-		try {
-			OWLObjectProperty property = factory.getOWLObjectProperty("Come",prefixManager);
-			OWLClass clas = factory.getOWLClass("Tigre", prefixManager);
-			OWLObjectSomeValuesFrom from = factory.getOWLObjectSomeValuesFrom(property, clas);
-			OWLSubClassOfAxiom axioma = factory.getOWLSubClassOfAxiom(subClass, superClass);
-			manager.addAxiom(ontology, axioma);
 
-		}catch (Exception e){
-			System.out.println("Error al crear la expresión de equivalencia.: "+e.getMessage());
-		}
-	}*/
 	
 
 }

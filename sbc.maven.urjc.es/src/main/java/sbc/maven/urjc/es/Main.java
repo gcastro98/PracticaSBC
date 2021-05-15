@@ -104,43 +104,20 @@ public class Main {
         actors.addAll(tuple.getActores());
         movies.addAll(tuple.getPelicula());
 
-        System.out.println("Size peliculas 1:" + movies.size());
 
 ////      API_Connection.PeticionAPI(aux, "WIKI");
         Importer_office importer_office = new Importer_office();
         List<Pelicula> movies_from_xlsx = importer_office.movies_from_excel("res/view.xlsx").getPelicula();
         List<Pelicula> movies_from_word = importer_office.movies_from_word("res/Classics of cinema.docx").getPelicula();
         movies = importer_office.cribado(movies, movies_from_xlsx);
-        System.out.println("Size peliculas 2:" + movies.size());
         movies = importer_office.cribado(movies, movies_from_word);
-        System.out.println("Size peliculas 3:" + movies.size());
-
-        System.out.println(movies);
 
         Ontol ontologia = new Ontol("ontologias/MovieOntology.owl","http://sbc2019Movie/ont/");
         ontologia.loadOntology();
-//        ontologia.addDataProperty("Calificacion", "xsd:double");
-//        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
         ontologia.addPeliculas(movies);
         ontologia.addActores(actors);
         ontologia.saveOntology();
         //ontologia.razonador();
-
-
-//        System.out.println("XLSX celda "+xlsxcell.getStringCellValue()+" "+ xlsxsheet.getFirstRowNum());
-
-        //Ontología de prueba
-        /*Ontol ontologia2 = new Ontol("NuevaOntologia.owl","http://sbc2019/ont");
-        ontologia2.createOntology();
-        ontologia2.addClass("Animal");
-        ontologia2.addSubClass("Vaca", "Animal");
-        ontologia2.addSubClass("Tigre", "Animal");
-        ontologia2.addObjectProperty("come","Animal", "Animal");
-        ontologia2.addExpresion("come", "Animal","Carnivoro");
-        ontologia2.createInstanciaWithObjetivoProperty("come","Tigreton","Tigre","Querie","Vaca");
-        ontologia2.addObjectProperty("come", "Tigre","Vaca");
-        ontologia2.saveOntology();
-        ontologia2.razonador();*/
 
     }
 
