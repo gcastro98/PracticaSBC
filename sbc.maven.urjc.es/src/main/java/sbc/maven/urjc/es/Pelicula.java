@@ -2,6 +2,7 @@ package sbc.maven.urjc.es;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.Objects;
 
 public class Pelicula {
@@ -14,10 +15,14 @@ public class Pelicula {
     private String MPAA_rating;
     private Long presupuesto;
     private Long beneficio_bruto;
+    private String estreno;
+    private String descripcion;
+    private int duracion;
 
     public Pelicula(){
         List<String> unknown = new ArrayList<>();
         unknown.add("Unknown");
+        this.titulo = "";
         this.calificacion = 0.0;
         this.generos =  unknown;
         this.MPAA_rating = "Unknown";
@@ -26,6 +31,9 @@ public class Pelicula {
         this.reparto = new ArrayList<>();
         this.productoras = new ArrayList<>();
         this.pais = new ArrayList<>();
+        this.estreno = "";
+        this.descripcion = "";
+        this.duracion = 0;
     }
 
     public Pelicula(String titulo, List<Actor> reparto, String cal, String pais, String generos, String productoras) {
@@ -58,6 +66,29 @@ public class Pelicula {
         this.beneficio_bruto = Long.parseLong(beneficio_bruto);
 
     }
+
+    public Pelicula(Map<String, String> map, Map<String, List<String>> map_list, List<Actor> actores){
+        this();
+        List<String> unknown = new ArrayList<>();
+        unknown.add("Unknown");
+        if( map != null && !map.isEmpty() ){
+            this.titulo = map.containsKey("titulo") ? map.get("titulo").trim().replaceAll("[\\/ :]", "_") : this.titulo;
+            this.calificacion = map.containsKey("evaluacion") ? Double.parseDouble(map.get("evaluacion").trim()) : this.calificacion;
+            this.MPAA_rating = map.containsKey("MPAA_rating") ? map.get("MPAA_rating") : this.MPAA_rating;
+            this.presupuesto = map.containsKey("presupuesto") ? Long.parseLong(map.get("presupuesto").trim()) : this.presupuesto;
+            this.beneficio_bruto = map.containsKey("beneficio_bruto") ? Long.parseLong(map.get("beneficio_bruto").trim()) : this.beneficio_bruto;;
+            this.estreno = map.containsKey("estreno") ? map.get("estreno").trim() : this.estreno;
+            this.descripcion = map.containsKey("descripcion") ? map.get("descripcion").trim() : this.descripcion;
+            this.duracion = map.containsKey("duracion") ? Integer.parseInt(map.get("duracion").trim()) : this.duracion;;
+        }
+        if(map_list != null && !map_list.isEmpty()  ) {
+            this.generos = map_list.containsKey("generos") ? map_list.get("generos") : this.generos;
+            this.productoras = map_list.containsKey("productoras") ? map_list.get("productoras") : this.productoras;
+            this.pais = map_list.containsKey("pais") ? map_list.get("pais") : this.pais;
+        }
+        this.reparto = actores != null && !actores.isEmpty() ? actores : reparto;
+    }
+
 
     public String getTitulo() {
         return titulo;
@@ -131,6 +162,30 @@ public class Pelicula {
         return beneficio_bruto;
     }
 
+    public String getEstreno() {
+        return estreno;
+    }
+
+    public void setEstreno(String estreno) {
+        this.estreno = estreno;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public int getDuracion() {
+        return duracion;
+    }
+
+    public void setDuracion(int duracion) {
+        this.duracion = duracion;
+    }
+
     public void setBeneficio_bruto(Long beneficio_bruto) {
         this.beneficio_bruto = beneficio_bruto;
     }
@@ -144,10 +199,14 @@ public class Pelicula {
     }
     public void fusion_movie( Pelicula candidata){
         if (titulo.equals(candidata.getTitulo())){
-            this.MPAA_rating = candidata.getMPAA_rating();
-            this.presupuesto = candidata.getPresupuesto();
-            this.beneficio_bruto = candidata.getBeneficio_bruto();
+            this.MPAA_rating = candidata.getMPAA_rating().trim() != "Unknown" ? candidata.getMPAA_rating().trim() : this.MPAA_rating;
+            this.presupuesto = candidata.getPresupuesto() != 0.0 ? candidata.getPresupuesto() : this.presupuesto;
+            this.beneficio_bruto = candidata.getBeneficio_bruto() != 0.0 ? candidata.getBeneficio_bruto() : this.beneficio_bruto;
             this.calificacion = calificacion == 0.0 ? candidata.getCalificacion() : calificacion;
+            this.estreno = candidata.getEstreno() != "" ? candidata.getEstreno() : this.estreno;
+            this.descripcion = candidata.getDescripcion() != "" ? candidata.getDescripcion() : this.descripcion;
+            this.duracion = candidata.getDuracion() != 0 ? candidata.getDuracion()  : this.duracion;;
+
         }
 
     }
@@ -164,7 +223,6 @@ public class Pelicula {
     public String toString() {
         return "Pelicula{" +
                 "titulo='" + titulo + '\'' +
-                ", reparto=" + reparto +
                 ", calificacion=" + calificacion +
                 ", pais=" + pais +
                 ", generos=" + generos +
@@ -172,6 +230,10 @@ public class Pelicula {
                 ", MPAA_rating='" + MPAA_rating + '\'' +
                 ", presupuesto=" + presupuesto +
                 ", beneficio_bruto=" + beneficio_bruto +
+                ", estreno='" + estreno + '\'' +
+                ", descripcion='" + descripcion + '\'' +
+                ", duracion=" + duracion +
+                ",\\n reparto=" + reparto +
                 '}';
     }
 }

@@ -42,7 +42,7 @@ public class Ontol {
 	public void loadOntology() {
 		try {
 
-			ontology = manager.loadOntologyFromOntologyDocument(new File("MovieOntology.owl"));
+			ontology = manager.loadOntologyFromOntologyDocument(new File("ontologias/MovieOntology.owl"));
 		}catch (OWLOntologyCreationException e){
 			System.out.println("Ontología no creada: "+e.getMessage());
 		}
@@ -50,7 +50,7 @@ public class Ontol {
 
 	public void saveOntology() {
 		try {
-			manager.saveOntology(ontology,IRI.create(new File ("ontologyCreada.owl")));
+			manager.saveOntology(ontology,IRI.create(new File ("ontologias/ontologyCreada.owl")));
 		}catch (Exception e){
 			System.out.println("Ontología no guardada: "+e.getMessage());
 		}

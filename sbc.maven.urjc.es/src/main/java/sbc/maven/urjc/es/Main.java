@@ -104,15 +104,20 @@ public class Main {
         actors.addAll(tuple.getActores());
         movies.addAll(tuple.getPelicula());
 
-
+        System.out.println("Size peliculas 1:" + movies.size());
 
 ////      API_Connection.PeticionAPI(aux, "WIKI");
         Importer_office importer_office = new Importer_office();
-        List<Pelicula> movies_from_xlsx = importer_office.movies_from_excel("view.xlsx").getPelicula();
+        List<Pelicula> movies_from_xlsx = importer_office.movies_from_excel("res/view.xlsx").getPelicula();
+        List<Pelicula> movies_from_word = importer_office.movies_from_word("res/Classics of cinema.docx").getPelicula();
         movies = importer_office.cribado(movies, movies_from_xlsx);
+        System.out.println("Size peliculas 2:" + movies.size());
+        movies = importer_office.cribado(movies, movies_from_word);
+        System.out.println("Size peliculas 3:" + movies.size());
 
+        System.out.println(movies);
 
-        Ontol ontologia = new Ontol("MovieOntology.owl","http://sbc2019Movie/ont/");
+        Ontol ontologia = new Ontol("ontologias/MovieOntology.owl","http://sbc2019Movie/ont/");
         ontologia.loadOntology();
 //        ontologia.addDataProperty("Calificacion", "xsd:double");
 //        ontologia.addObjectProperty("calificacion", "Actor", "Calificacion");
