@@ -61,7 +61,7 @@ public class Importer_office {
             this.tupla.getPelicula().add(aux);
             fila++;
 
-        } while (fila < 50);
+        } while (fila < 400);
         return this.tupla;
     }
 

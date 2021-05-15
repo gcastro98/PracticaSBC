@@ -14,7 +14,12 @@ public class Actor {
     private int nmovies;
 
     public Actor(String name) {
-        this.name = name.trim().replace(" ", "_");
+        if (!name.equals("N/A")){
+            this.name = name.trim().replace(" ", "_");
+
+        }else{
+            this.name="Unknown";
+        }
         this.avg_calification = 0;
         this.nmovies = 0;
     }
@@ -44,7 +49,7 @@ public class Actor {
     }
 
     public void addFilm(String cal) {
-        if (!cal.equals("N/A")) {
+        if (!cal.equals("N/A") && !this.name.equals("Unknown")) {
             DecimalFormat formato1 = new DecimalFormat("#,###");
             double calificacion = Double.parseDouble(cal);
             this.avg_calification = (avg_calification * nmovies + calificacion) / (nmovies + 1);

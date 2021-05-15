@@ -217,10 +217,22 @@ public class Pelicula {
         }
 
     }
+    public Actor actorEstrella (){
+        if (reparto.isEmpty()) return null;
+        Actor actor_estrella = new Actor("AuxActor");
+        for (Actor a : this.reparto){
+            actor_estrella = actor_estrella.getAvg_calification() > a.getAvg_calification() ? actor_estrella : a;
+        }
+        return actor_estrella.getName().equals("AuxActor") || actor_estrella.getName().equals("Unknown") ? null : actor_estrella;
+    }
+
+    public boolean isExito (){
+        return 3*this.getPresupuesto() < this.getBeneficio_bruto();
+    }
 
     public List<Actor> fusion_reparto(List<Actor> reparto) {
         for(Actor actor : reparto){
-            if (this.reparto.contains(actor))  this.reparto.add(actor) ;
+            if (this.reparto.contains(actor) && !actor.getName().equals("N/A"))  this.reparto.add(actor) ;
         }
         return this.reparto;
     }
@@ -258,3 +270,4 @@ public class Pelicula {
                 '}';
     }
 }
+

@@ -3,7 +3,7 @@ package sbc.maven.urjc.es;
 import java.io.File;
 import java.util.List;
 
-import com.hp.hpl.jena.rdf.model.InfModel;
+/*import com.hp.hpl.jena.rdf.model.InfModel;
 import com.hp.hpl.jena.rdf.model.Model;
 import com.hp.hpl.jena.rdf.model.ModelFactory;
 import com.hp.hpl.jena.rdf.model.Resource;
@@ -13,7 +13,7 @@ import org.apache.jena.query.Dataset;
 import org.apache.jena.query.ReadWrite;
 import org.mindswap.pellet.jena.ModelExtractor;
 import org.mindswap.pellet.jena.PelletReasoner;
-import org.mindswap.pellet.jena.PelletReasonerFactory;
+import org.mindswap.pellet.jena.PelletReasonerFactory;*/
 import org.semanticweb.elk.owlapi.ElkReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
@@ -80,8 +80,8 @@ public class Ontol {
 	
 	public void addSubClass(String subClass, String superClass) {
 		try {
-			OWLClass subclase = factory.getOWLClass(IRI.create(ontoIRI+subClass));
-			OWLClass superclase = factory.getOWLClass(IRI.create(ontoIRI+superClass));
+			OWLClass subclase = factory.getOWLClass(IRI.create(subClass));
+			OWLClass superclase = factory.getOWLClass(IRI.create(superClass));
 
 			OWLAxiom axioma_subclase = factory.getOWLDeclarationAxiom(subclase);
 			OWLAxiom axioma_superclase = factory.getOWLDeclarationAxiom(superclase);
@@ -310,7 +310,7 @@ public class Ontol {
 
 	public void addActores(List<Actor> actores){
 		for (Actor actor: actores) {
-			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#imdbrating",actor.getName(),"http://dbpedia.org/ontology/Actor",actor.getAvg_calification());
+			createInstanciaWithDataProperty("http://www.movieontology.org/2009/10/01/movieontology.owl#avgrating",actor.getName(),"http://dbpedia.org/ontology/Actor",actor.getAvg_calification());
 			}
 	}
 
@@ -352,6 +352,7 @@ public class Ontol {
 			System.out.println("Error al crear la expresión de equivalencia.: "+e.getMessage());
 		}
 	}
+
 	public void razonador() {
 		try {
 			OWLReasonerFactory a = new ElkReasonerFactory();

@@ -19,7 +19,7 @@ import java.util.List;
  */
 public class API_Connection {
     public static JsonObject PeticionAPI(String title, String tipo) {
-        String url = (tipo.equals("WIKI") ? "https://es.wikipedia.org/w/api.php?action=query&list=search&srprop=snippet&format=json&origin=*&utf8=&srsearch=" : "http://www.omdbapi.com/?apikey=6142688e&plot=sort&t=") + fromStringtoQueryString(title);
+        String url = (tipo.equals("WIKI") ? "https://es.wikipedia.org/w/api.php?action=categorytree&category=Libros&format=json" : "http://www.omdbapi.com/?apikey=6142688e&plot=sort&t=") + fromStringtoQueryString(title);
 
         try {
             ClientConfig cc = new ClientConfig();
