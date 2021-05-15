@@ -12,6 +12,10 @@ import java.io.IOException;
 import java.sql.SQLOutput;
 import java.util.*;
 
+/**
+ * Clase encargada de nutrir la ontologia de informacion extraida de archivos con informacion
+ * estructurada (MS Excel) y no estructurada (MS word).
+ */
 public class Importer_office {
 
     private Tuple<Actor, Pelicula> tupla;

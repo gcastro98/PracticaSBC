@@ -2,6 +2,13 @@ package sbc.maven.urjc.es;
 
 import java.util.List;
 
+/**
+ *
+ * @param <Actores>
+ * @param <Peliculas>
+ *
+ * Clase auxiliar para el uso de Tuplas, dado que Java no incluye esa funcionalidad.
+ */
 public class Tuple<Actores, Peliculas> {
 	public final List<Actor> actores;
 	public final List<Pelicula> peliculas;

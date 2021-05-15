@@ -6,6 +6,9 @@ import org.apache.jena.query.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase necesaria para la realizacion de peticiones SPARQL a repositorios RDF mnediante el uso de JENA y extraccion de la informacion devuelta.
+ */
 public class Jena {
     String service;    //Servicio de la consulta
     ResultSet result; //ResultSet que devuelve la consulta
@@ -20,6 +23,13 @@ public class Jena {
         this.service = service;
         this.result = null;
     }
+    public List<String> executeQueries(String[][] consultas_vars ){
+       List<String> resultado = new ArrayList<String>();
+        for (int i = 0; i<consultas_vars.length; i++){
+           resultado = resultado.isEmpty() ? executeQuery(consultas_vars[i][0], consultas_vars[i][1]) : Pelicula.fusion_list_string(resultado, executeQuery(consultas_vars[i][0], consultas_vars[i][1]));
+        }
+        return resultado;
+        }
 
     public List<String> executeQuery(String aux_consulta, String var_query) {
         Query query = QueryFactory.create(aux_consulta);
