@@ -86,26 +86,16 @@ public class Main {
                         "?productora foaf:name ?nombre_prod.\n" +
                         "Filter (regex(str(?nombre_prod),\"Disney\"))\n" +
                         "}";
-        String auxContinent =
-                "PREFIX other: <http://www.loc.gov/mads/rdf/v1#>\r\n" +
-                        "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\r\n" +
-                        "PREFIX yago: <http://dbpedia.org/class/yago/>\r\n" +
-                        "PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>\r\n" +
-                        "SELECT Distinct * \r\n " +
-                        "WHERE{ " +
-                        "?continente rdf:type other:Continent.\r\n" +
-                        " }\r\n" +
-                        "Limit 100\r\n";
+
 
 //
         Jena jena = new Jena();
-        List<String> listado = jena.executeQuery(query_films_disney_by_jd, "nombre_pelicula");
+        String[][] queries = {{query_films_disney,"nombre_pelicula"},{query_films_disney_by_jd, "nombre_pelicula"}};
+        List<String> listado = jena.executeQueries(queries);
         Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
         actors.addAll(tuple.getActores());
         movies.addAll(tuple.getPelicula());
 
-
-////      API_Connection.PeticionAPI(aux, "WIKI");
         Importer_office importer_office = new Importer_office();
         List<Pelicula> movies_from_xlsx = importer_office.movies_from_excel("res/view.xlsx").getPelicula();
         List<Pelicula> movies_from_word = importer_office.movies_from_word("res/Classics of cinema.docx").getPelicula();

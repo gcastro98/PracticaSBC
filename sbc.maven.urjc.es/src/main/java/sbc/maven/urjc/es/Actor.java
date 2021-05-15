@@ -4,6 +4,10 @@ import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.util.Objects;
 
+/**
+ *  Clase encargada de definir los atributos y metodos necesarios para gestionar
+ *  la informacion proporcionada por la api de IMDB y los archivos office, sobre los actores.
+ */
 public class Actor {
     private String name;
     private double avg_calification;

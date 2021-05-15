@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+/**
+ *  Clase encargada de definir los atributos y metodos necesarios para gestionar
+ *  la informacion proporcionada por la api de IMDB y los archivos office, sobre los pelicula.
+ */
 
 public class Pelicula {
     private String titulo;
@@ -206,10 +210,27 @@ public class Pelicula {
             this.estreno = candidata.getEstreno() != "" ? candidata.getEstreno() : this.estreno;
             this.descripcion = candidata.getDescripcion() != "" ? candidata.getDescripcion() : this.descripcion;
             this.duracion = candidata.getDuracion() != 0 ? candidata.getDuracion()  : this.duracion;;
-
+            this.reparto = candidata.getReparto() != this.reparto ? fusion_reparto(candidata.getReparto()) : this.reparto;
+            this.generos = candidata.getGeneros() != this.generos ? fusion_list_string(this.generos, candidata.getGeneros()) : this.generos;
+            this.pais = candidata.getPais() != this.pais ? fusion_list_string(this.pais, candidata.getPais()) : this.pais;
+            this.productoras = candidata.getProductoras() != this.productoras ? fusion_list_string(this.productoras,candidata.getProductoras()) : this.productoras;
         }
 
     }
+
+    public List<Actor> fusion_reparto(List<Actor> reparto) {
+        for(Actor actor : reparto){
+            if (this.reparto.contains(actor))  this.reparto.add(actor) ;
+        }
+        return this.reparto;
+    }
+    public static List<String> fusion_list_string(List<String> original ,List<String> candidatas ) {
+        for(String candidata : candidatas){
+            if (original.contains(candidata))  original.add(candidata) ;
+        }
+        return original;
+    }
+
 
     @Override
     public boolean equals(Object o) {

@@ -13,6 +13,10 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Clase encargada de proporcionar acceso a las APIs y recopilacion de informacion de las mismas,
+ * incluyendo metodos que permiten extraer informacion de los JSON proporcionados por la API de IMDB.
+ */
 public class API_Connection {
     public static JsonObject PeticionAPI(String title, String tipo) {
         String url = (tipo.equals("WIKI") ? "https://es.wikipedia.org/w/api.php?action=query&list=search&srprop=snippet&format=json&origin=*&utf8=&srsearch=" : "http://www.omdbapi.com/?apikey=6142688e&plot=sort&t=") + fromStringtoQueryString(title);

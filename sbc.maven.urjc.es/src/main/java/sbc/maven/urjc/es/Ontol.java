@@ -3,6 +3,17 @@ package sbc.maven.urjc.es;
 import java.io.File;
 import java.util.List;
 
+import com.hp.hpl.jena.rdf.model.InfModel;
+import com.hp.hpl.jena.rdf.model.Model;
+import com.hp.hpl.jena.rdf.model.ModelFactory;
+import com.hp.hpl.jena.rdf.model.Resource;
+import com.hp.hpl.jena.reasoner.Reasoner;
+import com.hp.hpl.jena.reasoner.ValidityReport;
+import org.apache.jena.query.Dataset;
+import org.apache.jena.query.ReadWrite;
+import org.mindswap.pellet.jena.ModelExtractor;
+import org.mindswap.pellet.jena.PelletReasoner;
+import org.mindswap.pellet.jena.PelletReasonerFactory;
 import org.semanticweb.elk.owlapi.ElkReasonerFactory;
 import org.semanticweb.owlapi.apibinding.OWLManager;
 import org.semanticweb.owlapi.model.*;
@@ -343,21 +354,22 @@ public class Ontol {
 	}
 	public void razonador() {
 		try {
-		OWLReasonerFactory a = new ElkReasonerFactory();
-		OWLReasoner reasoner = a.createReasoner(ontology);
-		reasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY);
-		if (reasoner.isConsistent()) {
-			InferredOntologyGenerator iog = new InferredOntologyGenerator(reasoner);
-			OWLOntology infOnt = manager.createOntology(IRI.create(ontoIRI));
-			iog.fillOntology(manager.getOWLDataFactory(), infOnt);
-			manager.saveOntology(infOnt,IRI.create(new File("ontologias/infOntology.owl")));
-		}
-		reasoner.dispose();
+			OWLReasonerFactory a = new ElkReasonerFactory();
+			OWLReasoner reasoner = a.createReasoner(ontology);
+			reasoner.precomputeInferences(InferenceType.CLASS_HIERARCHY);
+			if (reasoner.isConsistent()) {
+				InferredOntologyGenerator iog = new InferredOntologyGenerator(reasoner);
+				OWLOntology infOnt = manager.createOntology(IRI.create(ontoIRI));
+				iog.fillOntology(manager.getOWLDataFactory(), infOnt);
+				manager.saveOntology(infOnt,IRI.create(new File("ontologias/infOntology.owl")));
+			}
+			reasoner.dispose();
 		}catch(Exception e){
 			System.out.println("Error al crear la expresión de equivalencia.: "+e.getMessage());
 		}
 	}
 
-	
+
+
 
 }
