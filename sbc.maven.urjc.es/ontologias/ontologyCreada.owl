@@ -256,7 +256,6 @@
         <owl:inverseOf rdf:resource="http://www.movieontology.org/2009/10/01/movieontology.owl#isReleasingCountryOf"/>
         <rdfs:domain rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
         <rdfs:range rdf:resource="http://dbpedia.org/ontology/Country"/>
-        <rdfs:range rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
     </owl:ObjectProperty>
     
 
@@ -678,12 +677,6 @@
         </owl:equivalentClass>
         <rdfs:subClassOf rdf:resource="http://www.movieontology.org/2009/11/09/Movie"/>
     </owl:Class>
-    
-
-
-    <!-- http://www.movieontology.org/2009/10/01/Country -->
-
-    <owl:Class rdf:about="http://www.movieontology.org/2009/10/01/Country"/>
     
 
 
@@ -2073,7 +2066,7 @@
     <!-- Argentina -->
 
     <owl:NamedIndividual rdf:about="Argentina">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -2207,7 +2200,7 @@
     <!-- Australia -->
 
     <owl:NamedIndividual rdf:about="Australia">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -2215,7 +2208,7 @@
     <!-- Austria -->
 
     <owl:NamedIndividual rdf:about="Austria">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -2515,7 +2508,7 @@
     <!-- Belgium -->
 
     <owl:NamedIndividual rdf:about="Belgium">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -3020,7 +3013,7 @@
     <!-- Brazil -->
 
     <owl:NamedIndividual rdf:about="Brazil">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -3332,7 +3325,7 @@
     <!-- Canada -->
 
     <owl:NamedIndividual rdf:about="Canada">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -3772,7 +3765,7 @@
     <!-- China -->
 
     <owl:NamedIndividual rdf:about="China">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -4279,7 +4272,7 @@
     <!-- Czech_Republic -->
 
     <owl:NamedIndividual rdf:about="Czech_Republic">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -4991,7 +4984,7 @@
     <!-- Dominican_Republic -->
 
     <owl:NamedIndividual rdf:about="Dominican_Republic">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -6116,7 +6109,7 @@
     <!-- France -->
 
     <owl:NamedIndividual rdf:about="France">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -6480,7 +6473,7 @@
     <!-- Germany -->
 
     <owl:NamedIndividual rdf:about="Germany">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -7370,7 +7363,7 @@
     <!-- Hong_Kong -->
 
     <owl:NamedIndividual rdf:about="Hong_Kong">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -7610,7 +7603,7 @@
     <!-- India -->
 
     <owl:NamedIndividual rdf:about="India">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -7698,7 +7691,7 @@
     <!-- Ireland -->
 
     <owl:NamedIndividual rdf:about="Ireland">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -7731,7 +7724,7 @@
     <!-- Italy -->
 
     <owl:NamedIndividual rdf:about="Italy">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -8067,7 +8060,7 @@
     <!-- Japan -->
 
     <owl:NamedIndividual rdf:about="Japan">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -9826,7 +9819,7 @@
     <!-- Lebanon -->
 
     <owl:NamedIndividual rdf:about="Lebanon">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -10987,7 +10980,7 @@
     <!-- Mexico -->
 
     <owl:NamedIndividual rdf:about="Mexico">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -11608,7 +11601,7 @@
     <!-- Netherlands -->
 
     <owl:NamedIndividual rdf:about="Netherlands">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -11616,7 +11609,7 @@
     <!-- New_Zealand -->
 
     <owl:NamedIndividual rdf:about="New_Zealand">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -11720,7 +11713,7 @@
     <!-- Nigeria -->
 
     <owl:NamedIndividual rdf:about="Nigeria">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -12032,7 +12025,7 @@
     <!-- Panama -->
 
     <owl:NamedIndividual rdf:about="Panama">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -12600,7 +12593,7 @@
     <!-- Poland -->
 
     <owl:NamedIndividual rdf:about="Poland">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -12616,7 +12609,7 @@
     <!-- Portugal -->
 
     <owl:NamedIndividual rdf:about="Portugal">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -14174,7 +14167,7 @@
     <!-- Singapore -->
 
     <owl:NamedIndividual rdf:about="Singapore">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -14323,7 +14316,7 @@
     <!-- Slovenia -->
 
     <owl:NamedIndividual rdf:about="Slovenia">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -14646,7 +14639,7 @@
     <!-- Spain -->
 
     <owl:NamedIndividual rdf:about="Spain">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -15541,7 +15534,7 @@
     <!-- Switzerland -->
 
     <owl:NamedIndividual rdf:about="Switzerland">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -15923,7 +15916,7 @@
     <!-- Thailand -->
 
     <owl:NamedIndividual rdf:about="Thailand">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -21116,7 +21109,7 @@
     <!-- UK -->
 
     <owl:NamedIndividual rdf:about="UK">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -21124,7 +21117,7 @@
     <!-- USA -->
 
     <owl:NamedIndividual rdf:about="USA">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 
@@ -21282,7 +21275,7 @@
     <!-- United_Arab_Emirates -->
 
     <owl:NamedIndividual rdf:about="United_Arab_Emirates">
-        <rdf:type rdf:resource="http://www.movieontology.org/2009/10/01/Country"/>
+        <rdf:type rdf:resource="http://dbpedia.org/ontology/Country"/>
     </owl:NamedIndividual>
     
 

@@ -26,10 +26,6 @@ public class Importer_office {
         this.tupla = new Tuple<Actor, Pelicula>(actors, movies);
     }
 
-    public Importer_office(List<Actor> actors, List<Pelicula> movies) {
-        this.tupla = new Tuple<Actor, Pelicula>(actors, movies);
-    }
-
     public Tuple<Actor, Pelicula> movies_from_excel(String ruta) throws IOException {
 
         //xlsx
@@ -66,8 +62,7 @@ public class Importer_office {
     }
 
     public Tuple<Actor, Pelicula> movies_from_word(String ruta) throws IOException {
-
-        //xlsx
+        //docx
         FileInputStream docxFile = new FileInputStream(ruta);
         XWPFDocument docx = new XWPFDocument(docxFile);
         XWPFWordExtractor docxExt = new XWPFWordExtractor(docx);
@@ -77,6 +72,17 @@ public class Importer_office {
             tupla.getPelicula().add(line_to_Movie(linea));
         }
         return this.tupla;
+    }
+    //Para el parser del Word
+    public Pelicula line_to_Movie(String linea){
+        Map<String, String> map = new HashMap<>();
+        String[] aux = linea.split("min\\) --> ");
+        map.put("descripcion",aux[1]);
+        String[] primera_parte = aux[0].split("\\(");
+        map.put("titulo", primera_parte[0]);
+        map.put("estreno", primera_parte[1].split("/")[0]);
+        map.put("duracion", primera_parte[1].split("/")[1]);
+        return new Pelicula(map, null, null);
     }
 
     public List<Pelicula> cribado(List<Pelicula> originales, List<Pelicula> candidatas){
@@ -88,15 +94,5 @@ public class Importer_office {
             }
         }
         return originales;
-    }
-    public Pelicula line_to_Movie(String linea){
-        Map<String, String> map = new HashMap<>();
-        String[] aux = linea.split("min\\) --> ");
-        map.put("descripcion",aux[1]);
-        String[] primera_parte = aux[0].split("\\(");
-        map.put("titulo", primera_parte[0]);
-        map.put("estreno", primera_parte[1].split("/")[0]);
-        map.put("duracion", primera_parte[1].split("/")[1]);
-        return new Pelicula(map, null, null);
     }
 }

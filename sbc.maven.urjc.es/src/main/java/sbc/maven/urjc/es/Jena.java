@@ -18,57 +18,39 @@ public class Jena {
         this.result = null;
     }
 
-
     public Jena(String service) {
         this.service = service;
         this.result = null;
     }
-    public List<String> executeQueries(String[][] consultas_vars ){
-       List<String> resultado = new ArrayList<String>();
-        for (int i = 0; i<consultas_vars.length; i++){
-           resultado = resultado.isEmpty() ? executeQuery(consultas_vars[i][0], consultas_vars[i][1]) : Pelicula.fusion_list_string(resultado, executeQuery(consultas_vars[i][0], consultas_vars[i][1]));
+
+    public List<String> executeQueries(String[][] consultas_vars) {
+        List<String> resultado = new ArrayList<String>();
+        for (int i = 0; i < consultas_vars.length; i++) {
+            resultado = resultado.isEmpty() ? executeQuery(consultas_vars[i][0], consultas_vars[i][1]) : Pelicula.fusion_list_string(resultado, executeQuery(consultas_vars[i][0], consultas_vars[i][1]));
         }
         return resultado;
-        }
+    }
 
+    /**
+     * Funcion encargada de hacer hacer las consultas SPARQL
+     */
     public List<String> executeQuery(String aux_consulta, String var_query) {
         Query query = QueryFactory.create(aux_consulta);
         QueryExecution exe = QueryExecutionFactory.sparqlService(service, query);
         result = exe.execSelect();
-//        ResultSetFormatter.out(result);
         List<String> listado = new ArrayList<String>();
 
         if (result != null) {
             while (result.hasNext()) {
                 QuerySolution qResult = result.next();
-                for (String var: var_query.split(";")) {
+                for (String var : var_query.split(";")) {
                     String aux = qResult.get(var).toString();
                     String title = (String) aux.subSequence(0, aux.length() - 3);
                     listado.add(title);
                 }
-
-//			 Iterator<String> itNames = qResult.varNames();
-
-//			 while(itNames.hasNext()){
-//				 String varNames = itNames.next();
-//				 if(itNames.equals("nombre_pelicula") listado.add(q))
-//				 System.out.println(varNames+"\t"+qResult.get(varNames));
-//			 }
-
             }
-
-
         }
-//        System.out.println(listado);
         return listado;
     }
 
-    public void executeQuery_aux(String aux_consulta) {
-
-        Query query = QueryFactory.create(aux_consulta);
-        QueryExecution exe = QueryExecutionFactory.sparqlService(service, query);
-        result = exe.execSelect();
-        ResultSetFormatter.out(result);
-
-    }
 }

@@ -34,10 +34,16 @@ public class API_Connection {
     return null;
     }
 
+/**
+ *  Para hacer la consulta a la api hay que cambiar los espacios por "+".
+ */
    public static String fromStringtoQueryString(String entrada) {
 	   return entrada.trim().replace(" ", "+");
    }
 
+    /**
+     * Realiza petición a la api para objeter el JSON y parsearlo para obtener la tupla.
+     */
     public static Tuple<Actor,Pelicula> fromJSONtoObject(List<String> listado){
         List<Pelicula> movies = new ArrayList<Pelicula>();
         List<Actor> actors = new ArrayList<Actor>();
@@ -65,9 +71,6 @@ public class API_Connection {
             }
         }
         Tuple<Actor,Pelicula> returnedTuple = new Tuple<>(actors,movies);
-//        System.out.println("actores" + actors.size() + ", peliculas" + movies.size());
-//        System.out.println(actors.toString());
-//        System.out.println(actors.toString());
         return returnedTuple;
     }
 }

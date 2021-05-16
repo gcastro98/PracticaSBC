@@ -11,13 +11,11 @@
 			<artifactId>owlapi-distribution</artifactId>
 			<version>4.5.9</version>
 		</dependency>
-		<!--ELK 0.4.3 LibrerÃ­a jar -->
 		<dependency>
 			<groupId>org.semanticweb.elk</groupId>
 			<artifactId>elk-distribution</artifactId>
 			<version>0.4.3</version>
 		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.apache.jena/apache-jena -->
 		<dependency>
 			<groupId>org.apache.jena</groupId>
 			<artifactId>apache-jena</artifactId>

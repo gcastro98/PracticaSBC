@@ -16,9 +16,14 @@ import org.xml.sax.SAXException;
 
 public class Main {
     public static void main(String[] args) throws IOException, SAXException {
+        /**
+         * Declaración de variables.
+         */
         List<Pelicula> movies = new ArrayList<Pelicula>();
         List<Actor> actors = new ArrayList<Actor>();
-
+        Jena jena = new Jena();
+        Ontol ontologia = new Ontol("ontologias/MovieOntology.owl","http://sbc2019Movie/ont/");
+        Importer_office importer_office = new Importer_office();
         /**
          * máximo 300 Peliculas y su distribuidora en las que actua Johnny Depp, y la productora sea Disney.
          */
@@ -78,6 +83,9 @@ public class Main {
             " }\n" +
             "ORDER BY DESC(?nombre_pelicula)\n";
 
+        /**
+         * Peliculas de Warner en las que ha participado un deportista que pertenece a un equipo.
+         */
         String query_film_Warner =
                 "PREFIX dbo: <http://dbpedia.org/ontology/>\n" +
                 "PREFIX foaf: <http://xmlns.com/foaf/0.1/>\n" +
@@ -95,57 +103,47 @@ public class Main {
                 " }\n" +
                 "ORDER BY DESC(?nombre_pelicula)";
 
-
+/**
+ * Opteción de información
+ */
         System.out.println("Realizando consultas SPARQL...");
-        Jena jena = new Jena();
         String[][] queries = {{query_films_disney,"nombre_pelicula"},{query_films_disney_by_jd, "nombre_pelicula"},{query_film_Deportistas,"nombre_pelicula"},{query_film_Warner,"nombre_pelicula"}};
         List<String> listado = jena.executeQueries(queries);
+
         System.out.println("Realizando consultas a APIs...");
         Tuple<Actor,Pelicula> tuple = API_Connection.fromJSONtoObject(listado);
         actors.addAll(tuple.getActores());
         movies.addAll(tuple.getPelicula());
+
         System.out.println("Importando de Office...");
-        Importer_office importer_office = new Importer_office();
         List<Pelicula> movies_from_xlsx = importer_office.movies_from_excel("res/view.xlsx").getPelicula();
         List<Pelicula> movies_from_word = importer_office.movies_from_word("res/Classics of cinema.docx").getPelicula();
         movies = importer_office.cribado(movies, movies_from_xlsx);
         movies = importer_office.cribado(movies, movies_from_word);
-
-        System.out.println("Aplicando Ontolofia...");
-        Ontol ontologia = new Ontol("ontologias/MovieOntology.owl","http://sbc2019Movie/ont/");
-
+/**
+ * Uso de la información obtenida
+ */
+        System.out.println("Aplicando Ontologia...");
         ontologia.loadOntology();
         ontologia.addPeliculas(movies);
+        ontologia.addActores(actors);
         ontologia.addSubClass("http://sbc2019Movie/ont/Estrella","http://dbpedia.org/ontology/Actor");
         ontologia.addExpresion("http://sbc2019Movie/ont/esLaEstrellaDe","http://www.movieontology.org/2009/11/09/Movie","http://sbc2019Movie/ont/Estrella");
         ontologia.addSubClass("http://sbc2019Movie/ont/Comico","http://dbpedia.org/ontology/Actor");
         ontologia.addExpresion("http://sbc2019Movie/ont/esGraciosoEn","http://www.movieontology.org/2009/11/09/Movie","http://sbc2019Movie/ont/Comico");
         ontologia.addSubClass("http://sbc2019Movie/ont/Exitazo","http://www.movieontology.org/2009/11/09/Movie");
         ontologia.addExpresion("http://sbc2019Movie/ont/esUnExitoDe","http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company","http://sbc2019Movie/ont/Exitazo");
-
-
-        for (Pelicula peli : movies) {
-            Actor a = peli.actorEstrella();
-            if (a!=null){
-                ontologia.createInstanciaWithObjetivoProperty("http://sbc2019Movie/ont/esLaEstrellaDe",a.getName(),"http://dbpedia.org/ontology/Actor",peli.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie");
-
-            if ( peli.getGeneros().contains("Comedy")) ontologia.createInstanciaWithObjetivoProperty("http://sbc2019Movie/ont/esGraciosoEn",a.getName(),"http://dbpedia.org/ontology/Actor",peli.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie");
-            }
-            if (peli.isExito()) {
-                for ( String prod : peli.getProductoras()) {
-                    ontologia.createInstanciaWithObjetivoProperty("http://sbc2019Movie/ont/esUnExitoDe",peli.getTitulo(),"http://www.movieontology.org/2009/11/09/Movie",prod,"http://www.movieontology.org/2009/10/01/movieontology.owl#Production_Company");
-                }
-
-
-            }
-        }
-
-        ontologia.addActores(actors);
+        ontologia.inferringInfo(movies);
         ontologia.saveOntology();
-       // ontologia.razonador();
-        System.out.println("FIN Ejecución");
+        /**
+         * Comentamos la linea del razonador porque ELK da errores y borra axiomas.
+         * Usamos el razonador HermiT de Protégé.
+         */
+        //ontologia.razonador();
+        System.out.println("FIN Ejecucion");
 
     }
+
 
 
 
